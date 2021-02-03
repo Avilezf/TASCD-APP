@@ -1,5 +1,7 @@
 {
   "name": "TASCD",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
