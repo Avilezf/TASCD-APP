@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -26,6 +26,18 @@ const routes: Routes = [
   {
     path: 'pampe',
     loadChildren: () => import('./pages/pampe/pampe.module').then( m => m.PAMPEPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'stadistics',
+    loadChildren: () => import('./pages/stadistics/stadistics.module').then( m => m.StadisticsPageModule)
   },
 ];
 

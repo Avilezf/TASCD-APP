@@ -22,20 +22,20 @@
 
       <ion-list lines="none" class="menu-items">
         <ion-list>
-          <ion-item
+          <ion-item routerLink="/profile"  [routerLinkActive]="['active']"
             ><ion-icon name="person-circle-outline"></ion-icon> Perfil</ion-item
           >
-          <ion-item
+          <ion-item routerLink="/home"  [routerLinkActive]="['active']"
             ><ion-icon name="cafe-outline"></ion-icon> Mi TASCD</ion-item
           >
-          <ion-item
+          <ion-item routerLink="/qtdd"  [routerLinkActive]="['active']"
             ><ion-icon name="book-outline"></ion-icon> Mi Diario</ion-item
           >
-          <ion-item
+          <ion-item routerLink="/settings"  [routerLinkActive]="['active']"
             ><ion-icon name="construct-outline"></ion-icon>
             Configuración</ion-item
           >
-          <ion-item
+          <ion-item routerLink="/login"  [routerLinkActive]="['active']"
             ><ion-icon name="log-out-outline" color="danger"></ion-icon>
             <ion-text color="danger"> Salir</ion-text></ion-item
           >
