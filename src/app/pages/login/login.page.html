@@ -7,12 +7,11 @@
 <ion-content>
   <h1>TASCD</h1>
 
-  <form id="form">
-    <ion-input placeholder="Email"></ion-input>
-    <ion-input type="password" placeholder="Contraseña"></ion-input>
-    <ion-button expand="block" shape="round" (click) = "login()">Ingresar</ion-button>
+  <form id="form" (ngSubmit)="login( fLogin )" #fLogin ="ngForm">
+    <ion-input type="email" [(ngModel)]="loginUser.email" name="email" placeholder="Email" required></ion-input>
+    <ion-input type="password" [(ngModel)]="loginUser.password" name="password" placeholder="Contraseña" required></ion-input>
+    <ion-button expand="block" shape="round" type="submit">Ingresar</ion-button>
   </form>
-
 
   <p><a routerLink="/register">¿No te has registrado?</a></p>
  

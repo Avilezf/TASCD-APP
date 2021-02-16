@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { PampeService } from 'src/app/services/pampe.service';
+import { Pampe } from 'src/interfaces/interfaces';
 
 @Component({
   selector: 'app-qtdd',
@@ -8,7 +10,9 @@ import { MenuController } from '@ionic/angular';
 })
 export class QTDDPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+   pampe : Pampe[];
+
+  constructor(private menu: MenuController, private pampeService: PampeService) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -24,7 +28,12 @@ export class QTDDPage implements OnInit {
     this.menu.open('custom');
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+   const sw = await this.pampeService.getPampeQTDD();
+   if (sw){
+    this.pampe = this.pampeService.pampeResponse.pampe;
+   }
+
   }
 
 }
