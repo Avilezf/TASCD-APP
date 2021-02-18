@@ -1,7 +1,6 @@
 {
   "name": "TASCD",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "BNT-Foundation",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -62,7 +61,11 @@
     "tslint": "~6.1.0",
     "typescript": "~3.9.7"
   },
-  "description": "An Ionic project",
+  "description": "Is the the app to make your Tiempo A Solas Con Dios and be in touch with him",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
