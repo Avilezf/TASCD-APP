@@ -14,10 +14,10 @@
     <ion-text>
       <h3><b>{{v.date}}</b></h3>
       <h3><b>{{v.verse}}</b></h3>
-      <p>{{v.text}}</p>
+      <p [innerHtml]="v.text"></p>
       <br>
       <h3><b>Comentario</b></h3>
-      <p>{{v.comment}}</p>
+      <p [innerHtml]="v.comment"></p>
     </ion-text>
   </div>
   

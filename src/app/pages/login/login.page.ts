@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { LoginService } from '../../services/login.service';
 import { UiServiceService } from '../../services/ui-service.service';
 
@@ -12,32 +11,47 @@ import { UiServiceService } from '../../services/ui-service.service';
 })
 export class LoginPage implements OnInit {
 
+  loading: HTMLIonLoadingElement;
   loginUser = {
     email: '',
     password: ''
   }
 
-  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService) { }
+  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService, public loadingController: LoadingController) { }
 
   ngOnInit() {
   }
 
-  async login( fLogin: NgForm ) {
-    
-    if( fLogin.invalid) { return;}
+  async login(fLogin: NgForm) {
+    this.presentLoading();
 
-    const valid = await this.loginService.getLogin( this.loginUser.email, this.loginUser.password);
-    console.log(valid);
+    if (fLogin.invalid) { return; }
+    const valid = await this.loginService.getLogin(this.loginUser.email, this.loginUser.password);
 
-    if( valid ) {
+    if (valid) {
       //Move to page
-      this.NavCtrl.navigateRoot('/home', { animated: true});
-    }else{
+      setTimeout(() => {
+        this.loading.dismiss();
+        this.NavCtrl.navigateRoot('/home', { animated: true });
+      }, 1000);
+
+    } else {
       //Show Alert
-      this.uiService.presentAlert('Usuario y contraseña no son correctos.');
+
+      setTimeout(() => {
+        this.loading.dismiss();
+        this.uiService.presentAlert('Usuario y contraseña no son correctos.');
+      }, 1000);
 
     }
-    
+
+  }
+
+  async presentLoading() {
+    this.loading = await this.loadingController.create({
+      message: 'Ingresando...',
+    });
+    await this.loading.present();
   }
 
 }
