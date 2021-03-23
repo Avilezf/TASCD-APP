@@ -28,7 +28,8 @@ export class PAMPEPage implements OnInit {
   async qtdd(fQtdd: NgForm) {
     this.presentLoading();
 
-    const today = moment();
+    var today = moment();
+    today.subtract({hours: 6});
     console.log(today.format('dddd Do MMMM YYYY'));
     const sw = await this.pampeService.getPampeDay(today.format('dddd Do MMMM YYYY'));
 

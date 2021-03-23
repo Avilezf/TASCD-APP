@@ -17,3 +17,4 @@ export class HomeService {
     return this.http.get<VerseUp>(`${ URL }/verse/`);
   }
 }
+  

@@ -10,7 +10,7 @@
 
   <ion-content> 
 
-    <ion-card *ngFor="let p of pampe">
+    <ion-card *ngFor="let p of pampe" (click)="goToView(p)">
       <ion-card-header>
         <ion-card-subtitle>{{p.created}}</ion-card-subtitle>
         <ion-card-title >{{p.verse.verse}}</ion-card-title>

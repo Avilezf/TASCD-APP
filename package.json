@@ -1,7 +1,7 @@
 {
   "name": "TASCD",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "version": "1.0.1",
+  "author": "BNT Foundation",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -20,16 +20,17 @@
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/onesignal": "^5.31.1",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.3.1",
     "cordova-android": "9.0.0",
     "cordova-ios": "6.2.0",
-    "typescript": "3.9.7",
     "moment": "^2.29.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
+    "typescript": "3.9.7",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
@@ -57,6 +58,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "onesignal-cordova-plugin": "^2.11.3",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
@@ -73,7 +75,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "onesignal-cordova-plugin": {}
     },
     "platforms": [
       "android",

@@ -16,14 +16,33 @@ export class LoginPage implements OnInit {
     email: '',
     password: ''
   }
+  cont: number;
 
-  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService, public loadingController: LoadingController) { }
+  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService, public loadingController: LoadingController) { this.cont = 0; }
 
   ngOnInit() {
   }
 
   async login(fLogin: NgForm) {
     this.presentLoading();
+
+    if (this.loginUser.email == '' && this.loginUser.password == '') {
+      this.cont = this.cont + 1;
+      setTimeout(() => {
+        this.loading.dismiss();
+        this.uiService.presentAlert('Usuario y contraseña no son correctos.');
+      }, 1000);
+      
+      
+
+      if (this.cont == 3) {
+        this.cont = 0;
+        setTimeout(() => {
+          this.uiService.presentAlert('¿Olvidaste tu contraseña?.');
+        }, 3000);
+      }
+    }
+
 
     if (fLogin.invalid) { return; }
     const valid = await this.loginService.getLogin(this.loginUser.email, this.loginUser.password);
@@ -39,11 +58,23 @@ export class LoginPage implements OnInit {
       //Show Alert
 
       setTimeout(() => {
+        this.cont = this.cont + 1;
         this.loading.dismiss();
         this.uiService.presentAlert('Usuario y contraseña no son correctos.');
       }, 1000);
 
+
+      
+      if (this.cont == 3) {
+        this.cont = 0;
+        setTimeout(() => {
+          this.uiService.presentAlert('¿Olvidaste tu contraseña?.');//Creation of Forgot Password
+        }, 3000);
+      }
+
     }
+
+
 
   }
 
@@ -53,5 +84,6 @@ export class LoginPage implements OnInit {
     });
     await this.loading.present();
   }
+
 
 }

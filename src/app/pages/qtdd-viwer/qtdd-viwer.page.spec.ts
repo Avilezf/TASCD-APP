@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { QtddViewerComponent } from './qtdd-viewer.component';
+import { QtddViwerPage } from './qtdd-viwer.page';
 
-describe('QtddViewerComponent', () => {
-  let component: QtddViewerComponent;
-  let fixture: ComponentFixture<QtddViewerComponent>;
+describe('QtddViwerPage', () => {
+  let component: QtddViwerPage;
+  let fixture: ComponentFixture<QtddViwerPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QtddViewerComponent ],
+      declarations: [ QtddViwerPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(QtddViewerComponent);
+    fixture = TestBed.createComponent(QtddViwerPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

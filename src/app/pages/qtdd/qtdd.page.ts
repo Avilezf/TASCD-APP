@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { PampeService } from 'src/app/services/pampe.service';
 import { Pampe } from 'src/interfaces/interfaces';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-qtdd',
@@ -12,7 +14,7 @@ export class QTDDPage implements OnInit {
 
    pampe : Pampe[];
 
-  constructor(private menu: MenuController, private pampeService: PampeService) { }
+  constructor(private menu: MenuController, private pampeService: PampeService, private router: Router, private storage: Storage) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -34,6 +36,11 @@ export class QTDDPage implements OnInit {
     this.pampe = this.pampeService.pampeResponse.pampe;
    }
 
+  }
+
+  async goToView(pampe){
+    await this.storage.set('pampe', pampe);
+    this.router.navigate(['/qtdd-viwer']);
   }
 
 }
