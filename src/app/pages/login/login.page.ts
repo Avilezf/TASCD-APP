@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { NavController, LoadingController } from '@ionic/angular';
 import { LoginService } from '../../services/login.service';
 import { UiServiceService } from '../../services/ui-service.service';
@@ -18,9 +19,10 @@ export class LoginPage implements OnInit {
   }
   cont: number;
 
-  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService, public loadingController: LoadingController) { this.cont = 0; }
+  constructor(private loginService: LoginService, private NavCtrl: NavController, private uiService: UiServiceService, public loadingController: LoadingController, private faio: FingerprintAIO) { this.cont = 0; }
 
   ngOnInit() {
+    this.finger();
   }
 
   async login(fLogin: NgForm) {
@@ -83,6 +85,20 @@ export class LoginPage implements OnInit {
       message: 'Ingresando...',
     });
     await this.loading.present();
+  }
+
+  finger() {
+    this.faio.show({
+      title: 'Biometric Authentication', // (Android Only) | optional | Default: "<APP_NAME> Biometric Sign On"
+      subtitle: 'Coolest Plugin ever', // (Android Only) | optional | Default: null
+      description: 'Please authenticate' // optional | Default: null
+    })
+    .then(result => {
+      this.NavCtrl.navigateRoot('/home', { animated: true });
+    })
+    .catch(err => {
+      console.log('Err', err);
+    })
   }
 
 

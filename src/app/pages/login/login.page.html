@@ -1,19 +1,41 @@
-<ion-header  translucent={false}>
-  <ion-toolbar>
-    
-  </ion-toolbar>
+<ion-header translucent="{false}">
+  <ion-toolbar> </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img src="../../../assets/icon/favicon.png"/>
+  <img src="../../../assets/icon/favicon.png" />
 
-  <form id="form" (ngSubmit)="login( fLogin )" #fLogin ="ngForm">
-    <ion-input type="email" [(ngModel)]="loginUser.email" name="email" placeholder="Email" required></ion-input>
-    <ion-input type="password" [(ngModel)]="loginUser.password" name="password" placeholder="Contraseña" required></ion-input>
+  <form id="form" (ngSubmit)="login( fLogin )" #fLogin="ngForm">
+    <ion-input
+      type="email"
+      [(ngModel)]="loginUser.email"
+      name="email"
+      placeholder="Email"
+      required
+    ></ion-input>
+    <ion-input
+      type="password"
+      [(ngModel)]="loginUser.password"
+      name="password"
+      placeholder="Contraseña"
+      required
+    ></ion-input>
     <ion-button expand="block" shape="round" type="submit">Ingresar</ion-button>
   </form>
 
-  <p><a routerLink="/register">¿No te has registrado?</a></p>
-  
- 
+  <p>
+    <ion-item>
+      <ion-label>
+        <a routerLink="/register">&nbsp; &nbsp; &nbsp; ¿No te has registrado?</a>
+      </ion-label>
+    </ion-item>
+    <br>
+    <ion-label>
+      <a routerLink="/register">¿Olvidate tu contraseña?</a>
+    </ion-label>
+  </p>
+
+  <div class="finger">
+    <ion-button (click)="finger()"><ion-icon name="finger-print-outline"></ion-icon></ion-button>
+  </div>
 </ion-content>
