@@ -5,38 +5,37 @@
         <div class="menu-header-bg"></div>
         <div class="header-content">
           <ion-avatar>
-            <img
-              src="../assets/images/avatar.png"
-            />
+            <img src="../assets/images/avatar.png" />
           </ion-avatar>
           <ion-label class="ion-text-wrap">
             <h2>Bienvenido!</h2>
-            <p>{{user?.nombre + " " + user?.apellido}}</p>
+            <p>{{ user?.nombre + " " + user?.apellido }}</p>
           </ion-label>
         </div>
         <div class="action-button">
-          <ion-button
+          <ion-button routerLink="/stadistics" [routerLinkActive]="['active']"
             ><ion-icon name="flame-outline" color="warning"></ion-icon
             >Racha</ion-button
           >
         </div>
-  
+
         <ion-list lines="none" class="menu-items">
           <ion-list>
-            <ion-item routerLink="/profile"  [routerLinkActive]="['active']"
-              ><ion-icon name="person-circle-outline"></ion-icon> Perfil</ion-item
+            <ion-item routerLink="/profile" [routerLinkActive]="['active']"
+              ><ion-icon name="person-circle-outline"></ion-icon>
+              Perfil</ion-item
             >
-            <ion-item routerLink="/home"  [routerLinkActive]="['active']"
+            <ion-item routerLink="/home" [routerLinkActive]="['active']"
               ><ion-icon name="cafe-outline"></ion-icon> Mi TASCD</ion-item
             >
-            <ion-item routerLink="/qtdd"  [routerLinkActive]="['active']"
+            <ion-item routerLink="/qtdd" [routerLinkActive]="['active']"
               ><ion-icon name="book-outline"></ion-icon> Mi Diario</ion-item
             >
-            <ion-item routerLink="/settings"  [routerLinkActive]="['active']"
+            <ion-item routerLink="/settings" [routerLinkActive]="['active']"
               ><ion-icon name="construct-outline"></ion-icon>
               Configuración</ion-item
             >
-            <ion-item  (click)="logout()" [routerLinkActive]="['active']"
+            <ion-item (click)="logout()" [routerLinkActive]="['active']"
               ><ion-icon name="log-out-outline" color="danger"></ion-icon>
               <ion-text color="danger"> Salir</ion-text></ion-item
             >
@@ -45,6 +44,6 @@
       </ion-content>
     </ion-menu>
   </div>
-  
+
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
