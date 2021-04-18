@@ -15,6 +15,8 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { AlertController } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +27,8 @@ import { environment } from '../environments/environment';
     SplashScreen,
     OneSignal,
     FingerprintAIO,
+    EmailComposer,
+    AlertController,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

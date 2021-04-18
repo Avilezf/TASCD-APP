@@ -19,6 +19,11 @@
       <h3><b>¿Qué me dijo Dios?</b></h3>
       <p>{{pampe?.qtdd}}</p>
     </ion-text>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="send()">
+        <ion-icon name="share"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
   
 </ion-content>
