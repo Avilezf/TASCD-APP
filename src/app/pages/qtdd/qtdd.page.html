@@ -13,9 +13,9 @@
     <ion-card *ngFor="let p of pampe" (click)="goToView(p)">
       <ion-card-header>
         <ion-card-subtitle>{{p.created}}</ion-card-subtitle>
-        <ion-card-title >{{p.verse.verse}}</ion-card-title>
+       <!-- <ion-card-title ><p  [innerHtml]="p.verse.verse"></p></ion-card-title>-->
       </ion-card-header>
-      <ion-card-content class="ion-text-wrap" [innerHtml]="p.verse.text">
+      <ion-card-content class="ion-text-wrap"><p  [innerHtml]="p.verse.verse"></p>
       </ion-card-content>
       <ion-card-content class="ion-text-wrap">
         {{p.qtdd}}
