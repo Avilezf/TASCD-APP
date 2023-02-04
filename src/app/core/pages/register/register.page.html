@@ -9,13 +9,13 @@
 <ion-content>
   <h1>Registrar</h1>
 
-  <form id="form">
-    <ion-input placeholder="Nombre"></ion-input>
-    <ion-input placeholder="Apellido"></ion-input>
-    <ion-input placeholder="Email"></ion-input>
-    <ion-input type="password" placeholder="Contraseña"></ion-input>
-    <ion-input type="password" placeholder="Confirmar Contraseña"></ion-input>
-    <ion-button expand="block" shape="round" (click)="register()">Registrar</ion-button>
+  <form id="form"  [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <ion-input placeholder="Nombre" formControlName="firstName" ></ion-input>
+    <ion-input placeholder="Apellido" formControlName="lastName"></ion-input>
+    <ion-input placeholder="Email" formControlName="email"></ion-input>
+    <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+    <ion-input type="password" placeholder="Confirmar Contraseña" formControlName="password2"></ion-input>
+    <ion-button type="submit" expand="block" shape="round">Registrar</ion-button>
   </form>
 
 

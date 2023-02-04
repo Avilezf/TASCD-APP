@@ -7,10 +7,18 @@
 <ion-content>
   <h1>TASCD</h1>
 
-  <form id="form">
-    <ion-input placeholder="Email"></ion-input>
-    <ion-input type="password" placeholder="Contraseña"></ion-input>
-    <ion-button expand="block" shape="round" (click) = "login()">Ingresar</ion-button>
+  <form id="form" class="list-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input placeholder="Email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <app-show-hide-password>
+        <ion-input placeholder="Password" type="password" formControlName="password" maxlength="20"></ion-input>
+      </app-show-hide-password>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" shape="round">Ingresar</ion-button>
   </form>
 
 

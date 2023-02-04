@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResponseLoginDto } from '../pages/login/dto/response-login.dto';
-import { UserLoginDto } from '../pages/login/dto/user-login.dto';
+import { UserRegisterDto } from '../pages/register/dto/user-register.dto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
 
-  private readonly urlEndPoint: string = 'auth/login';
+  private readonly urlEndPoint: string = 'auth/register';
 
   constructor(private http: HttpClient) {
   }
 
-  public login(userLoginDto: UserLoginDto): Observable<ResponseLoginDto> {
-    return this.http.post<ResponseLoginDto>(`${environment.urlServer}/${this.urlEndPoint}`, userLoginDto);
+  public register(userRegisterDto: UserRegisterDto): Observable<ResponseLoginDto> {
+    return this.http.post<ResponseLoginDto>(`${environment.urlServer}/${this.urlEndPoint}`, userRegisterDto);
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ResponseLoginDto } from '../dto/response-login.dto';
+import { ResponseLoginDto } from '../../core/pages/login/dto/response-login.dto';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -20,18 +20,18 @@ export class SessionService {
 
   async getToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.token || this.defaultValue;
+    return data?.accessToken || this.defaultValue;
   }
 
   async isAuthenticated(): Promise<boolean> {
     const token: string = await this.getToken();
     const payload = this.getPayLoadToken(token);
+    console.log(payload);
 
-    /*
-    if (token && payload?.codcia && payload?.nrousr
+    if (token && payload?.iss
       && payload?.exp && new Date(payload.exp * 1000) >= new Date()) {
       return true;
-    */
+    }
 
     return false;
   }

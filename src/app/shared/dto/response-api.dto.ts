@@ -1,7 +1,7 @@
 export class ResponseApiDto {
-  code: number | undefined;
-  status: boolean | undefined;
-  message: string | undefined;
+  code!: number;
+  status!: boolean;
+  message!: string;
   cause?: string;
   data?: any;
 }

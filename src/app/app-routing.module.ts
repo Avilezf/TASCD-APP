@@ -1,44 +1,31 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MenuComponent } from './core/components/menu/menu.component';
+import { AutoLoginGuard } from './core/guards/auth-login.guard';
+import { AuthGuard } from './core/guards/auth.guard';
+import { content } from './shared/router/feature-router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./features/pages/home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'login',
-    loadChildren: () => import('./core/pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./core/pages/login/login.module').then( m => m.LoginPageModule),
+    canLoad: [AutoLoginGuard]
   },
   {
     path: 'register',
     loadChildren: () => import('./core/pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'pampe',
-    loadChildren: () => import('./features/pages/pampe/pampe.module').then( m => m.PampePageModule)
-  },
-  {
-    path: 'qtdd',
-    loadChildren: () => import('./features/pages/qtdd/qtdd.module').then( m => m.QtddPageModule)
-  },
-  {
-    path: 'statistics',
-    loadChildren: () => import('./features/pages/statistics/statistics.module').then( m => m.StatisticsPageModule)
-  },
-  {
-    path: 'settings',
-    loadChildren: () => import('./core/pages/settings/settings.module').then( m => m.SettingsPageModule)
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./core/pages/profile/profile.module').then( m => m.ProfilePageModule)
-  },
+    path: '',
+    component: MenuComponent,
+    children: content,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
