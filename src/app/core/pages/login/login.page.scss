@@ -42,7 +42,6 @@ ion-content {
     app-show-hide-password {
       background: var(--ion-color-input-background);
       border-radius: 8px;
-      float: right;
     }
 
     ion-input {
@@ -74,5 +73,17 @@ ion-content {
       text-align: center;
       padding: 50px;
       text-decoration: none;
+  }
+
+  .list-form {
+    ion-label {
+      font-size: 0.85em;
+      color: var(--ion-color-cuaternario);
+      font-weight: 600;
+    }
+
+    ion-input {
+      color: var(--ion-color-cuaternario);
+    }
   }
 }
