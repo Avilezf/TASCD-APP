@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { TokenInterceptor } from './core/handler/token.handler';
 import { HttpErrorInterceptor } from './core/handler/http-error.handler';
-import { MenuComponent } from './core/components/menu/menu.component';
+import { SharedModule } from './shared/shared.module';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MenuComponent } from './core/components/menu/menu.component';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
