@@ -23,10 +23,14 @@ export class SessionService {
     return data?.accessToken || this.defaultValue;
   }
 
+  async getRefreshToken(): Promise<string> {
+    const data: ResponseLoginDto = await this.getDataSession();
+    return data?.refreshToken || this.defaultValue;
+  }
+
   async isAuthenticated(): Promise<boolean> {
     const token: string = await this.getToken();
     const payload = this.getPayLoadToken(token);
-    console.log(payload);
 
     if (token && payload?.iss
       && payload?.exp && new Date(payload.exp * 1000) >= new Date()) {

@@ -1,3 +1,7 @@
+.MsoNoSpacing {
+  --color: #9c9c9c !important;
+}
+
 ion-toolbar {
   --background: #ffffff;
   --opacity: 100;
@@ -24,12 +28,16 @@ ion-content {
     text-align: center;
     font-weight: 700;
     font-size: 40px;
-    color: #010100;
+    color: #444444;
     margin-bottom: 15%;
   }
 
+  h2 {
+    color: #444444;
+  }
+
   h3 {
-      color: #010100;
+      color: #444444;
       padding-left: 19px;
   }
 

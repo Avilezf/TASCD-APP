@@ -13,7 +13,8 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return fromPromise(this.sessionService.getToken()).pipe(
       mergeMap(token => {
-        if (!token) {
+        console.log(token)
+        if (!token ||  req.url.includes("api/auth/")) {
           return next.handle(req);
         }
 
@@ -21,6 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
           headers: req.headers.set('Authorization', `Bearer ${token}`)
         });
 
+        console.log(headers);
         return next.handle(headers);
       }));
   }
