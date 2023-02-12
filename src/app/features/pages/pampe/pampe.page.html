@@ -33,6 +33,7 @@
     <ion-item>
       <ion-label position="stacked">¿Qué te dijo Dios?</ion-label>
       <ion-textarea autosize
+        #textarea
         (ionFocus)="scrollTo()"
         (ionBlur)="scrollDown()"
         rows="1"
@@ -42,7 +43,7 @@
         >
       </ion-textarea>
     </ion-item>
-    <ion-button expand="full" shape="round" color="medium" (click)="qtdd()">Guardar</ion-button>
+    <ion-button expand="full" shape="round" color="medium" (click)="pampe()" *ngIf="isPampeDone">Guardar</ion-button>
   </form>
 
 </ion-content>

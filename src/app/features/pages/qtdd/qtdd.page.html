@@ -15,8 +15,11 @@
         <ion-card-subtitle>{{qtd.verseDate}}</ion-card-subtitle>
         <ion-card-title>{{qtd.verseName}}</ion-card-title>
       </ion-card-header>
-      <ion-card-content [innerHTML]="qtd.verseHTML">
+      <ion-card-content [innerHTML]="qtd.verseHTML.substring(0,200)">
       </ion-card-content>
+      <div class="bar">
+        <hr>
+      </div>
       <ion-card-content class="ion-text-wrap">
         {{qtd.qtdd}}
       </ion-card-content>

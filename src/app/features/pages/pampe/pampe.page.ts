@@ -1,6 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { PampeDto } from './dto/pampe.dto';
+import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonCard, IonContent } from '@ionic/angular';
+import { IonCard, IonContent, IonTextarea } from '@ionic/angular';
+import { PampeService } from '../../services/pampe.service';
+import { SessionService } from '../../../shared/services/session.service';
+import { ResponsePampeDto } from './dto/response-pampe.dto';
+import { FormUtil } from 'src/app/shared/util/form.util';
+import { ErrorType } from 'src/app/shared/enum/error-type.enum';
+import { UtilService } from '../../../shared/services/util.service';
 
 @Component({
   selector: 'app-pampe',
@@ -9,26 +16,58 @@ import { IonCard, IonContent } from '@ionic/angular';
 })
 export class PampePage implements OnInit {
 
-  @ViewChild(IonContent) content!: IonContent;
-  public pampe:boolean = true;
-
-  constructor(private router: Router) { }
-
-  ngOnInit() {
+  protected formBuilderGroup(): { [key: string]: any; } {
+    throw new Error('Method not implemented.');
+  }
+  protected onSubmitAction(): Promise<void> {
+    throw new Error('Method not implemented.');
   }
 
-  qtdd(){
-    this.router.navigate(['/qtdd']);
+  @ViewChild(IonContent) content!: IonContent;
+  @ViewChild('textarea') textarea!: IonTextarea;
+
+  public isTextFocus:boolean = true;
+  public isPampeDone:boolean = false;
+
+  constructor(private router: Router, private pampeService :PampeService, private sessionService: SessionService, private utilService: UtilService) {
+   }
+
+  ngOnInit() {
+    this.isPampeDoneRequest();
+  }
+
+  async isPampeDoneRequest(){
+    let userId = await this.sessionService.getUserId();
+    const response = await this.pampeService.isPampeDone(userId).toPromise() as ResponsePampeDto;
+    if(response.message === 'true'){
+      this.isPampeDone = true;
+    }else{
+      this.isPampeDone = false;
+    }
+  }
+
+
+
+  async pampe(): Promise<void>{
+
+    let userId = await this.sessionService.getUserId();
+    let pampeDto: PampeDto = {
+      qtdd: this.textarea.value as string,
+      userId: userId as string
+    };
+
+    let response = await this.pampeService.pampe(pampeDto).toPromise() as ResponsePampeDto;
+    if(response)
+      await this.utilService.showToast({ message: 'Save Successfully', type: ErrorType.info });
+      this.router.navigate(['/qtdd']);
   }
 
   scrollTo(){
-    this.pampe = false;
-    console.log('Hola')
+    this.isTextFocus = false;
   }
 
   scrollDown(){
-    this.pampe = true;
-    console.log('Adios')
+    this.isTextFocus = true;
   }
 
 

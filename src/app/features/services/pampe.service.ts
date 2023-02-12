@@ -6,21 +6,26 @@ import { ResponseHomeDto } from '../pages/home/dto/response-home.dto';
 import { ResponseQtddDto } from '../pages/qtdd/dto/response-qtdd.dto';
 import { StorageService } from '../../shared/services/storage.service';
 import { SessionService } from '../../shared/services/session.service';
+import { PampeDto } from '../pages/pampe/dto/pampe.dto';
+import { ResponsePampeDto } from '../pages/pampe/dto/response-pampe.dto';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class QtddService {
+export class PampeService {
 
-  private readonly urlEndPoint: string = 'home/diary';
-  private readonly emailUser: string = 'luis.llanos9@gmail.com';
+  private readonly urlEndPoint: string = 'pampe';
 
   constructor(private http: HttpClient) {
   }
 
-  public qtdd(UserId: string): Observable<Array<ResponseQtddDto>> {
-    return this.http.get<Array<ResponseQtddDto>>(`${environment.urlServer}/${this.urlEndPoint}/${UserId}`);
+  public pampe(pampe: PampeDto): Observable<ResponsePampeDto> {
+    return this.http.post<ResponsePampeDto>(`${environment.urlServer}/${this.urlEndPoint}/`, pampe);
+  }
+
+  public isPampeDone(userId: string): Observable<ResponsePampeDto> {
+    return this.http.get<ResponsePampeDto>(`${environment.urlServer}/${this.urlEndPoint}/${userId}`);
   }
 
 }

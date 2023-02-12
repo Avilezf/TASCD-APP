@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { QtddService } from '../../services/qtdd.service';
 import { ResponseQtddDto } from './dto/response-qtdd.dto';
+import { SessionService } from '../../../shared/services/session.service';
 
 @Component({
   selector: 'app-qtdd',
@@ -12,7 +13,7 @@ export class QtddPage implements OnInit {
 
   public qtdd!: Array<ResponseQtddDto>;
 
-  constructor(private menu: MenuController, private qtddService: QtddService) { }
+  constructor(private menu: MenuController, private qtddService: QtddService, private sessionService: SessionService) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -33,7 +34,8 @@ export class QtddPage implements OnInit {
   }
 
   async getQtdd() {
-    this.qtdd = await this.qtddService.qtdd().toPromise() as Array<ResponseQtddDto>;
+    const userId = await this.sessionService.getUserId();
+    this.qtdd = await this.qtddService.qtdd(userId).toPromise() as Array<ResponseQtddDto>;
   }
 
 }

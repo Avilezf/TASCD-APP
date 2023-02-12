@@ -23,6 +23,11 @@ export class SessionService {
     return data?.accessToken || this.defaultValue;
   }
 
+  async getUserId(): Promise<string> {
+    const data: ResponseLoginDto = await this.getDataSession();
+    return data?.userId || this.defaultValue;
+  }
+
   async getRefreshToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
     return data?.refreshToken || this.defaultValue;
