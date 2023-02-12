@@ -21,7 +21,6 @@ export class HomePage implements OnInit {
 
   async getVerse() {
     this.htmlVerse = await this.homeService.home().toPromise() as ResponseHomeDto;
-    console.log(this.htmlVerse);
   }
 
   pampe(){

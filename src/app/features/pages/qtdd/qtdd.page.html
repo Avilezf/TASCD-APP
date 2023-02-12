@@ -9,6 +9,20 @@
   </ion-header>
 
   <ion-content>
+
+    <ion-card *ngFor="let qtd of qtdd;">
+      <ion-card-header>
+        <ion-card-subtitle>{{qtd.verseDate}}</ion-card-subtitle>
+        <ion-card-title>{{qtd.verseName}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="qtd.verseHTML">
+      </ion-card-content>
+      <ion-card-content class="ion-text-wrap">
+        {{qtd.qtdd}}
+      </ion-card-content>
+    </ion-card>
+
+<!--
     <ion-card>
       <ion-card-header>
         <ion-card-subtitle>Lunes, 1 de Febrero de 2021</ion-card-subtitle>
@@ -68,6 +82,7 @@
         Dios me quiere decir en Él puedo descansar mis cargas en todo momento, debo liberarme y dejar que Él obre en cada momento de mi vida
       </ion-card-content>
     </ion-card>
+    -->
   </ion-content>
 </div>
 

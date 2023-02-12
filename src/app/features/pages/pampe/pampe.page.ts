@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonCard, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-pampe',
@@ -7,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./pampe.page.scss'],
 })
 export class PampePage implements OnInit {
+
+  @ViewChild(IonContent) content!: IonContent;
+  public pampe:boolean = true;
 
   constructor(private router: Router) { }
 
@@ -16,5 +20,16 @@ export class PampePage implements OnInit {
   qtdd(){
     this.router.navigate(['/qtdd']);
   }
+
+  scrollTo(){
+    this.pampe = false;
+    console.log('Hola')
+  }
+
+  scrollDown(){
+    this.pampe = true;
+    console.log('Adios')
+  }
+
 
 }

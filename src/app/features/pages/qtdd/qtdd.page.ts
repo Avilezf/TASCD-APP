@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { QtddService } from '../../services/qtdd.service';
+import { ResponseQtddDto } from './dto/response-qtdd.dto';
 
 @Component({
   selector: 'app-qtdd',
@@ -8,7 +10,9 @@ import { MenuController } from '@ionic/angular';
 })
 export class QtddPage implements OnInit {
 
-  constructor(private menu: MenuController) { }
+  public qtdd!: Array<ResponseQtddDto>;
+
+  constructor(private menu: MenuController, private qtddService: QtddService) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -25,6 +29,11 @@ export class QtddPage implements OnInit {
   }
 
   ngOnInit() {
+    this.getQtdd();
+  }
+
+  async getQtdd() {
+    this.qtdd = await this.qtddService.qtdd().toPromise() as Array<ResponseQtddDto>;
   }
 
 }
