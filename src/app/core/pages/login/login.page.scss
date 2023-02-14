@@ -86,4 +86,12 @@ ion-content {
       color: var(--ion-color-cuaternario);
     }
   }
+
+  @media (min-width: 50em) {
+    .login {
+      width: 50%;
+      margin: auto;
+      padding: 10px;
+    }
+  }
 }

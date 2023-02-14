@@ -25,6 +25,10 @@ const routes: Routes = [
     component: MenuComponent,
     children: content,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./core/pages/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   }
 ];
 

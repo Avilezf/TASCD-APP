@@ -1,0 +1,24 @@
+ion-col {
+  color: #fff;
+  text-align: center;
+  padding: 0;
+}
+
+.letter {
+  font-size: 120px;
+  padding: 0;
+}
+
+ion-icon {
+  font-size: 120px;
+}
+
+@media (max-width: 50em) {
+  .letter {
+    font-size: 79px;
+  }
+
+  ion-icon {
+    font-size: 110px;
+  }
+}

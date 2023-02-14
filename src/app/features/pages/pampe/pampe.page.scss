@@ -1,3 +1,8 @@
 ion-content {
-  --background: url("../../../../assets/images/background_pampe.png") 0 0/100% 100% no-repeat;
+
+  @media (max-width: 50em) {
+    --background: url("../../../../assets/images/background_pampe.png") 0 0/100% 100% no-repeat;
+    --background-size: 100%;
+    background-size: cover;
+  }
 }

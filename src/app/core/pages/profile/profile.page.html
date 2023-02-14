@@ -7,5 +7,24 @@
 </ion-header>
 
 <ion-content>
+  <div class="register">
+    <h1>Perfil</h1>
 
+    <form id="form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+
+      <ion-input placeholder="Nombre" formControlName="firstName"></ion-input>
+
+      <ion-input placeholder="Apellido" formControlName="lastName"></ion-input>
+
+      <ion-input placeholder="Email" disabled="true"></ion-input>
+
+      <ion-button type="submit" expand="block" shape="round">Guardar</ion-button>
+
+    </form>
+    <hr>
+    <br>
+    <br>
+    <ion-button expand="block" shape="round" fill="outline" class="out-ion-button">Olvide mi contraseña</ion-button>
+    <ion-button expand="block" shape="round" color="danger" class="out-ion-button">Eliminar cuenta</ion-button>
+  </div>
 </ion-content>

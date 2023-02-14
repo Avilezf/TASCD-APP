@@ -18,18 +18,15 @@ ion-toolbar {
 
 ion-content {
   //--background: #ffffff;
-
   color: #fff;
-  --background: url("../../../../assets/images/background.png") 0 0/100% 100% no-repeat;
-  --background-size: 100%;
-  background-size: cover;
 
   h1 {
     text-align: center;
     font-weight: 700;
     font-size: 40px;
     color: #444444;
-    margin-bottom: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
   h2 {
@@ -64,4 +61,11 @@ ion-content {
     --box-shadow: none;
   }
 
+  @media (max-width: 50em) {
+    --background: url("../../../../assets/images/background.png") 0 0/100% 100% no-repeat;
+    --background-size: 100%;
+    background-size: cover;
+  }
 }
+
+

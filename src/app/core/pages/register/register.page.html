@@ -7,11 +7,13 @@
 </ion-header>
 
 <ion-content>
-  <h1>Registrar</h1>
 
-  <form id="form"  [formGroup]="formData" (ngSubmit)="onSubmit()">
+  <div class="register">
+    <h1>Registrar</h1>
 
-      <ion-input placeholder="Nombre" formControlName="firstName" ></ion-input>
+    <form id="form" [formGroup]="formData" (ngSubmit)="onSubmit()">
+
+      <ion-input placeholder="Nombre" formControlName="firstName"></ion-input>
 
       <ion-input placeholder="Apellido" formControlName="lastName"></ion-input>
 
@@ -22,13 +24,17 @@
       </app-show-hide-password>
 
       <app-show-hide-password>
-        <ion-input placeholder="Confirmar Contraseña" type="password" formControlName="password2" maxlength="20"></ion-input>
+        <ion-input placeholder="Confirmar Contraseña" type="password" formControlName="password2"
+          maxlength="20"></ion-input>
       </app-show-hide-password>
 
-    <ion-button type="submit" expand="block" shape="round">Registrar</ion-button>
-  </form>
+      <ion-button type="submit" expand="block" shape="round">Registrar</ion-button>
+    </form>
 
 
-   <p>Al presionar en registarse se aceptarán los <a>términos y condiciones</a> de la aplicación TASCD</p>
+    <p>Al presionar en registarse se aceptarán los <a>términos y condiciones</a> de la aplicación TASCD</p>
+
+
+  </div>
 
 </ion-content>

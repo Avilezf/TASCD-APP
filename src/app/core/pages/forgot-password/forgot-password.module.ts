@@ -1,23 +1,23 @@
+import { SharedModule } from './../../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterPageRoutingModule } from './register-routing.module';
+import { ForgotPasswordPageRoutingModule } from './forgot-password-routing.module';
 
-import { RegisterPage } from './register.page';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { ForgotPasswordPage } from './forgot-password.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterPageRoutingModule,
+    ForgotPasswordPageRoutingModule,
     ReactiveFormsModule,
     SharedModule
   ],
-  declarations: [RegisterPage]
+  declarations: [ForgotPasswordPage]
 })
-export class RegisterPageModule {}
+export class ForgotPasswordPageModule {}

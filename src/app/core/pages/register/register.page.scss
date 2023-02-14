@@ -21,8 +21,8 @@ ion-toolbar {
      font-weight: 700;
      font-size: 30px;
      color: #010100;
-     margin-bottom: 15%;
-     padding: 50px;
+     margin-bottom: 5%;
+     padding: 25px;
    }
 
    #form {
@@ -59,4 +59,12 @@ ion-toolbar {
        text-align: center;
        margin-top: 40px;
    }
+
+   @media (min-width: 50em) {
+    .register {
+      width: 50%;
+      margin: auto;
+      padding: 10px;
+    }
+  }
  }

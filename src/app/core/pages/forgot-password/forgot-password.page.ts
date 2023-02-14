@@ -2,17 +2,18 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErrorType } from 'src/app/shared/enum/error-type.enum';
-import { FormUtil } from 'src/app/shared/util/form.util';
+import { FormUtil } from '../../../shared/util/form.util';
 import { RegisterService } from '../../services/register.service';
 import { ResponseLoginDto } from '../login/dto/response-login.dto';
 import { UserRegisterDto } from '../register/dto/user-register.dto';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.page.html',
+  styleUrls: ['./forgot-password.page.scss'],
 })
-export class SettingsPage extends FormUtil implements OnInit {
+export class ForgotPasswordPage extends FormUtil implements OnInit {
+
 
   constructor(private router: Router, protected injector: Injector, private registerService: RegisterService) {
     super(injector);
@@ -23,8 +24,7 @@ export class SettingsPage extends FormUtil implements OnInit {
 
   protected formBuilderGroup(): { [key: string]: any } {
     return {
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      email: ['', Validators.required],
     };
   }
 
@@ -47,5 +47,8 @@ export class SettingsPage extends FormUtil implements OnInit {
       }
     }
 
+
   }
+
+
 }
