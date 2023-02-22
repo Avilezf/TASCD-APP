@@ -39,6 +39,7 @@ export class PampePage implements OnInit {
   async isPampeDoneRequest(){
     let userId = await this.sessionService.getUserId();
     const response = await this.pampeService.isPampeDone(userId).toPromise() as ResponsePampeDto;
+    console.log(response.message  === 'true');
     if(response.message === 'true'){
       this.isPampeDone = true;
     }else{

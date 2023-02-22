@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ErrorType } from 'src/app/shared/enum/error-type.enum';
 import { FormUtil } from 'src/app/shared/util/form.util';
 import { RegisterService } from '../../services/register.service';
@@ -47,5 +47,20 @@ export class SettingsPage extends FormUtil implements OnInit {
       }
     }
 
+  }
+
+  goLetters(){
+    //const navigationExtras: NavigationExtras = { state: {  } };
+    this.router.navigate(['/settings/letters']);
+  }
+
+  goComments(){
+    //const navigationExtras: NavigationExtras = { state: {  } };
+    this.router.navigate(['/settings/comments']);
+  }
+
+  goThemes(){
+    //const navigationExtras: NavigationExtras = { state: {  } };
+    this.router.navigate(['/settings/themes']);
   }
 }

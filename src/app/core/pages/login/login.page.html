@@ -7,7 +7,7 @@
 <ion-content>
 
   <div class="login">
-    <h1>TASCD</h1>
+    <img src="../../../../assets/images/logo.jpg" alt="Logo TASCD">
 
     <form id="form" class="list-form" [formGroup]="formData" (ngSubmit)="onSubmit()">
       <ion-item>
@@ -23,8 +23,12 @@
       <ion-button type="submit" expand="block" shape="round">Ingresar</ion-button>
     </form>
 
-    <p><a routerLink="/register">¿No te has registrado?</a></p>
-    <p><a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a></p>
+    <div class="letters">
+      <p><a routerLink="/register">¿No te has registrado?</a></p>
+      <hr class="line">
+      <p><a routerLink="/forgot-password">¿Olvidaste tu contraseña?</a></p>
+    </div>
+
   </div>
 
 </ion-content>
