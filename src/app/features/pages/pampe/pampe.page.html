@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="pampe"  [@fadeInOut]>
+  <ion-card *ngIf="isTextFocus" [@fadeInOut]>
     <ion-card-header>
       <ion-card-subtitle>Toma nota de tus conversaciones con Dios</ion-card-subtitle>
       <ion-card-title>¿Señor que me quieres decir hoy?</ion-card-title>
@@ -37,6 +37,8 @@
         (ionFocus)="scrollTo()"
         (ionBlur)="scrollDown()"
         rows="1"
+        type="text"
+        autoGrow="true"
         placeholder="Escribe aquí lo que te dijo Dios"
         autocomplete="on"
         autocorrect="on"

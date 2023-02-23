@@ -12,7 +12,10 @@
   </ion-text>
 
   <div class="container">
-    <div [innerHTML]="htmlVerse.html"></div>
+    <ion-card>
+        <div [innerHTML]="htmlVerse.html" class="container card-content"></div>
+    </ion-card>
+
     <ion-button expand="block" color="medium shade" (click)="pampe()">¿Qué te dijo Dios?</ion-button>
   </div>
 
