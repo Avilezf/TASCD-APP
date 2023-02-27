@@ -1,3 +1,5 @@
+$font-size: var(--ion-font-size);
+
 ion-menu {
   ion-content {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -56,13 +58,13 @@ ion-menu {
 
     h2 {
       padding-left: 10px;
-      font-size: 17px;
+      font-size: 17px + $font-size;
       color: var(--ion-color-primary-contrast);
     }
 
     p {
       padding-left: 10px;
-      font-size: 14px;
+      font-size: $font-size;
       color:var(--ion-color-primary-contrast);
       font-weight: 100;
       letter-spacing: 0.4px;
@@ -87,6 +89,8 @@ ion-menu {
       margin-bottom: 10px;
       color: #757575;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: $font-size - 2px;
+    ;
     }
 
     .active {

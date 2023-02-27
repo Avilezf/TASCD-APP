@@ -1,3 +1,5 @@
+$font-size: var(--ion-font-size);
+
 ion-toolbar {
   --background: #ffffff;
 
@@ -63,6 +65,7 @@ ion-toolbar {
      text-align: center;
      color: #b6b6b6;
      margin-top: 40px;
+     font-size: $font-size;
    }
 
    a {

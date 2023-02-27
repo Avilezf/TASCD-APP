@@ -7,6 +7,29 @@
 </ion-header>
 
 <ion-content>
+  <div class="container">
+    <h1>A a</h1>
+    <p class="paragraph">Todo lo puedo <b>en Cristo</b> que me fortalece</p>
 
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <p>Tamaño de Letra</p>
+        <ion-range [ticks]="true" [snaps]="true" [min]="14" [max]="30" [step]="2" [pinFormatter]="pinFormatter"
+          [pin]="true"></ion-range>
+      </ion-label>
 
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Tipo de Letra</p>
+        <ion-select interface="action-sheet" placeholder="Select" cancelText="Cancel" value="apples">
+          <ion-select-option value="apples">Apples</ion-select-option>
+          <ion-select-option value="oranges">Oranges</ion-select-option>
+          <ion-select-option value="bananas">Bananas</ion-select-option>
+        </ion-select>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

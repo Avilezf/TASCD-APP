@@ -1,8 +1,18 @@
+$font-size: var(--ion-font-size);
+
 ion-content {
+
+  .size {
+    font-size: $font-size;
+  }
 
   @media (max-width: 50em) {
     --background: url("../../../../assets/images/background_pampe.png") 0 0/100% 100% no-repeat;
     --background-size: 100%;
     background-size: cover;
+  }
+
+  p {
+    font-size: $font-size;
   }
 }

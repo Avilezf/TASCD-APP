@@ -8,18 +8,18 @@
 
 <ion-content>
   <ion-card *ngIf="isTextFocus" [@fadeInOut]>
-    <ion-card-header>
+    <ion-card-header class="size">
       <ion-card-subtitle>Toma nota de tus conversaciones con Dios</ion-card-subtitle>
       <ion-card-title>¿Señor que me quieres decir hoy?</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content class="size">
       ¿Qué te habló Dios?<br />
       ¿Cómo esto cambiará tus perspectivas?<br />
       ¿Cómo aplicará esto en tu vida diaria?<br />
     </ion-card-content>
 
-    <ion-card-content>
+    <ion-card-content class="size">
       <b>PAMPE: </b><br />
       <b>P</b> - ¿Pecados que debo confesar?<br />
       <b>A</b> - ¿Actitudes que debo adoptar?<br />
@@ -31,7 +31,7 @@
 
   <form>
     <ion-item>
-      <ion-label position="stacked">¿Qué te dijo Dios?</ion-label>
+      <ion-label position="stacked" class="size">¿Qué te dijo Dios?</ion-label>
       <ion-textarea autosize
         #textarea
         (ionFocus)="scrollTo()"

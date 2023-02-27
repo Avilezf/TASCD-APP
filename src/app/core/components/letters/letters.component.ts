@@ -11,4 +11,12 @@ export class LettersComponent implements OnInit {
 
   ngOnInit() {}
 
+  pinFormatter(value: number) {
+    document.documentElement.style.setProperty('--ion-font-size', value.toString()+'px');
+    return `${value}px`;
+  }
+
+  changeText(value: string){
+
+  }
 }
