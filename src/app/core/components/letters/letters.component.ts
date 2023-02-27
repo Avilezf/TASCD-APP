@@ -16,7 +16,7 @@ export class LettersComponent implements OnInit {
     return `${value}px`;
   }
 
-  changeText(value: string){
-
+  changeText(event: any){
+    document.documentElement.style.setProperty('--ion-font-family', event.target.value);
   }
 }

@@ -2,7 +2,7 @@ $font-size: var(--ion-font-size);
 
 ion-menu {
   ion-content {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--ion-font-family);
   }
 
   .menu-header-bg {
@@ -16,13 +16,14 @@ ion-menu {
     margin-left: -18px;
     margin-top: -50px;
     margin-bottom: 60px;
+    font-family: var(--ion-font-family);
   }
 
   .action-button {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: var(--ion-font-family);
 
     ion-buttons {
       text-transform: capitalize;
@@ -30,6 +31,7 @@ ion-menu {
       --background: #b6b6b6;
       --border-radius: 7px;
       --box-shadow: none;
+      font-family: var(--ion-font-family);
     }
 
     ion-icon {
@@ -43,6 +45,7 @@ ion-menu {
     left: 15px;
     display: flex;
     align-items: center;
+    font-family: var(--ion-font-family);
 
     .ion-avatar {
       width: 80px;
@@ -54,11 +57,13 @@ ion-menu {
 
     img {
       border-radius: 50%;
+      font-family: var(--ion-font-family);
     }
 
     h2 {
       padding-left: 10px;
       font-size: 17px + $font-size;
+      font-family: var(--ion-font-family);
       color: var(--ion-color-primary-contrast);
     }
 
@@ -68,27 +73,32 @@ ion-menu {
       color:var(--ion-color-primary-contrast);
       font-weight: 100;
       letter-spacing: 0.4px;
+      font-family: var(--ion-font-family);
     }
   }
 
   .main-header-bg {
     ion-title {
       color: var(--ion-color-primary-contrast);
+      font-family: var(--ion-font-family);
     }
   }
 
   .menu-items {
     margin: 0px;
+    font-family: var(--ion-font-family);
+
     ion-icon {
       margin-right: 20px;
       color: #757575;
+      font-family: var(--ion-font-family);
     }
 
     ion-item {
       padding-left: 20px;
       margin-bottom: 10px;
       color: #757575;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: var(--ion-font-family);
       font-size: $font-size - 2px;
     ;
     }
@@ -97,6 +107,7 @@ ion-menu {
       border-left: 5px solid;
       color: #b6b6b6;
       padding-left: 15px;
+      font-family: var(--ion-font-family);
 
       ion-icon {
         color: #b6b6b6;

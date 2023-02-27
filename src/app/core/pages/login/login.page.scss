@@ -4,12 +4,14 @@ ion-toolbar {
   ion-title {
       color: #010100;
       text-align: center;
+      font-family: var(--ion-font-family);
   }
 
   ion-button {
     text-transform: initial;
     color: #b6b6b6;
     font-size: 17px;
+    font-family: var(--ion-font-family);
   }
 }
 
@@ -23,6 +25,7 @@ ion-content {
     color: #010100;
     margin-bottom: 15%;
     padding: 50px;
+    font-family: var(--ion-font-family);
   }
 
   img {
@@ -41,12 +44,14 @@ ion-content {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+    font-family: var(--ion-font-family);
   }
 
   #form {
     margin-top: 10%;
     padding-left: 30px;
     padding-right: 30px;
+    font-family: var(--ion-font-family);
 
     ion-item {
       --inner-padding-end: 0px;
@@ -55,11 +60,13 @@ ion-content {
       --border-style: none;
       --background: rgba(0, 0, 0, 0);
       --border-color: rgba(0, 0, 0, 0);
+      font-family: var(--ion-font-family);
     }
 
     app-show-hide-password {
       background: var(--ion-color-input-background);
       border-radius: 8px;
+      font-family: var(--ion-font-family);
     }
 
     ion-input {
@@ -68,6 +75,7 @@ ion-content {
       --padding-top: 12px;
       --padding-bottom: 12px;
       border-radius: 8px;
+      font-family: var(--ion-font-family);
     }
   }
 
@@ -79,21 +87,25 @@ ion-content {
     border-radius: 50px;
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
     --box-shadow: none;
+    font-family: var(--ion-font-family);
   }
 
   p {
     text-align: center;
     color: #b6b6b6;
+    font-family: var(--ion-font-family);
   }
 
   .letters {
     margin-top: 15%;
+    font-family: var(--ion-font-family);
   }
 
   a {
       text-align: center;
       padding: 50px;
       text-decoration: none;
+      font-family: var(--ion-font-family);
   }
 
   .list-form {
@@ -101,10 +113,12 @@ ion-content {
       font-size: 0.85em;
       color: var(--ion-color-cuaternario);
       font-weight: 600;
+      font-family: var(--ion-font-family);
     }
 
     ion-input {
       color: var(--ion-color-cuaternario);
+      font-family: var(--ion-font-family);
     }
   }
 
@@ -113,10 +127,12 @@ ion-content {
       width: 50%;
       margin: auto;
       padding: 10px;
+      font-family: var(--ion-font-family);
     }
 
     .letters {
       margin-top: 5%;
+      font-family: var(--ion-font-family);
     }
   }
 }

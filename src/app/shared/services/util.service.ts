@@ -62,7 +62,7 @@ export class UtilService {
           header: param?.header,
           message: param.message,
           mode: 'ios',
-          position: param?.position || 'top',
+          position: param?.position || 'bottom',
           color: param?.type || ErrorType.error,
           cssClass: 'custom-toast'
         });

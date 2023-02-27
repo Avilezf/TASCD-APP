@@ -6,6 +6,7 @@ import { FormUtil } from 'src/app/shared/util/form.util';
 import { RegisterService } from '../../services/register.service';
 import { ResponseLoginDto } from '../login/dto/response-login.dto';
 import { UserRegisterDto } from '../register/dto/user-register.dto';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-settings',
@@ -14,7 +15,7 @@ import { UserRegisterDto } from '../register/dto/user-register.dto';
 })
 export class SettingsPage extends FormUtil implements OnInit {
 
-  constructor(private router: Router, protected injector: Injector, private registerService: RegisterService) {
+  constructor(private router: Router, protected injector: Injector, private registerService: RegisterService,) {
     super(injector);
   }
 
@@ -49,18 +50,31 @@ export class SettingsPage extends FormUtil implements OnInit {
 
   }
 
-  goLetters(){
+  goLetters() {
     //const navigationExtras: NavigationExtras = { state: {  } };
     this.router.navigate(['/settings/letters']);
   }
 
-  goComments(){
+  goComments() {
     //const navigationExtras: NavigationExtras = { state: {  } };
     this.router.navigate(['/settings/comments']);
   }
 
-  goThemes(){
+  goThemes() {
     //const navigationExtras: NavigationExtras = { state: {  } };
     this.router.navigate(['/settings/themes']);
+  }
+
+  async goShare() {
+    const sharedAbility = await Share.canShare();
+    if(sharedAbility.value){
+      await Share.share({
+        title: 'See cool stuff',
+        text: 'Really awesome thing you need to see right meow',
+        url: 'http://ionicframework.com/',
+        dialogTitle: 'Share with buddies',
+      });
+    }
+
   }
 }

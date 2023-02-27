@@ -8,5 +8,23 @@
 
 <ion-content>
 
+  <div class="container center">
+    <ion-item class="center">
+      <p>Este espacio es para ti. Escribe sugerencias o cosas que te gustaría ver dentro de TASCD APP. Cada uno de tus
+        cometarios los vamos a tener
+        muy encuenta para nuestras nuevas versiones. Así que anímate a comentar, escribir y sugerir cualquier cosa que
+        haga de tu
+        experiencia dentro de TASCD APP sea mucho mejor. Muchas gracias, Dios te bendiga.
+      </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea autosize #textarea rows="1" type="text" autoGrow="true" placeholder="Escribe aquí tu comentario"
+        autocomplete="on" autocorrect="on">
+      </ion-textarea>
+    </ion-item>
+    <ion-button expand="full" shape="round" color="medium" (click)="presentToast()" >Enviar</ion-button>
+  </div>
+
 
 </ion-content>

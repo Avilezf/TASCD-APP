@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-comment',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toastController: ToastController) { }
 
   ngOnInit() {}
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Su comentario se ha enviado. Muchas gracias!',
+      duration: 1500,
+      position: 'bottom',
+      color: 'success'
+    });
+
+    await toast.present();
+  }
 
 }
