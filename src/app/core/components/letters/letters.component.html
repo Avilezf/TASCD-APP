@@ -17,15 +17,15 @@
       <ion-item>
         <ion-label>
           <p>Tamaño de Letra</p>
-          <ion-range [ticks]="true" [snaps]="true" [min]="14" [max]="30" [step]="2" [pinFormatter]="pinFormatter"
-            [pin]="true"></ion-range>
+          <ion-range [ticks]="true" [snaps]="true" [min]="14" [max]="30" [step]="2" [pinFormatter]="pinFormatter" [value]="appConfiguration.fontSize!.valueOf()!"
+            [pin]="true" (ionChange)="changePin($event)"></ion-range>
         </ion-label>
 
       </ion-item>
       <ion-item>
         <ion-label>
           <p>Tipo de Letra</p>
-          <ion-select interface="action-sheet" placeholder="Select" cancelText="Cancel" value="Segoe UI" (ionChange)="changeText($event)">
+          <ion-select interface="action-sheet" placeholder="Select" cancelText="Cancel" [value]="appConfiguration.fontFamily!" (ionChange)="changeText($event)">
             <ion-select-option value="Segoe UI">Segoe UI</ion-select-option>
             <ion-select-option value="Courier New">Courier New</ion-select-option>
             <ion-select-option value="Franklin Gothic Medium">Franklin Gothic Medium</ion-select-option>

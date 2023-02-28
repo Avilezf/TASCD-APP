@@ -11,17 +11,21 @@ import { MenuDto } from './dto/menu.model';
 export class MenuComponent implements OnInit {
 
   pages: MenuDto[] = [];
+  name: string = '';
 
   constructor(private sessionService: SessionService, private router: Router) {}
 
   ngOnInit() {
-
+    this.getUserName();
   }
 
   async logout(): Promise<void> {
-    console.log('out')
     await this.sessionService.logout();
     this.router.navigateByUrl('/login');
+  }
+
+  async getUserName(){
+    this.name = await this.sessionService.getUserName();
   }
 
 }

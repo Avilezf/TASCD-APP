@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResponseLoginDto } from '../pages/login/dto/response-login.dto';
 import { UserLoginDto } from '../pages/login/dto/user-login.dto';
+import { AppConfiguration } from '../pages/login/dto/dto/app.configuration.dto';
+import { ResponseConfigDto } from '../pages/settings/dto/response-config.dto';
 
 
 @Injectable({

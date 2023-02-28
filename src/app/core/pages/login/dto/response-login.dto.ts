@@ -1,6 +1,7 @@
+import { TokenDto } from './dto/token.dto';
+import { UserLoginAppDto } from './dto/userLoginApp.dto';
+
 export class ResponseLoginDto {
-  userId: string | undefined;
-  accessToken: string | undefined;
-  refreshToken: string | undefined;
-  message: string | null | undefined;
+  tokenDto!: TokenDto;
+  userLoginDto!: UserLoginAppDto;
 }

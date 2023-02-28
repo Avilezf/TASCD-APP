@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResponseLoginDto } from '../../core/pages/login/dto/response-login.dto';
 import { StorageService } from './storage.service';
+import { AppConfiguration } from '../../core/pages/login/dto/dto/app.configuration.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +21,27 @@ export class SessionService {
 
   async getToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.accessToken || this.defaultValue;
+    return data?.tokenDto?.accessToken || this.defaultValue;
   }
 
   async getUserId(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.userId || this.defaultValue;
+    return data?.tokenDto?.userId || this.defaultValue;
+  }
+
+  async getUserName(): Promise<string> {
+    const data: ResponseLoginDto = await this.getDataSession();
+    return data?.userLoginDto?.name || this.defaultValue;
+  }
+
+  async getUserConfiguration(): Promise<AppConfiguration> {
+    const data: ResponseLoginDto = await this.getDataSession();
+    return data?.userLoginDto?.appConfiguration || this.defaultValue;
   }
 
   async getRefreshToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.refreshToken || this.defaultValue;
+    return data?.tokenDto?.refreshToken || this.defaultValue;
   }
 
   async isAuthenticated(): Promise<boolean> {
@@ -50,7 +61,7 @@ export class SessionService {
     this.router.navigateByUrl('/login');
   }
 
-  private async getDataSession(): Promise<ResponseLoginDto> {
+  async getDataSession(): Promise<ResponseLoginDto> {
     return await this.storeService.get(this.key);
   }
 
