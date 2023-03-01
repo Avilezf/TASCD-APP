@@ -42,9 +42,9 @@ export class QtddPage implements OnInit {
     })
   }
 
-  onIonInfinite(ev: any) {
+  async onIonInfinite(ev: any) {
     this.count++;
-    this.getQtdd(this.count);
+    await this.getQtdd(this.count);
     (ev as InfiniteScrollCustomEvent).target.complete();
   }
 

@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
 
   pages: MenuDto[] = [];
   name: string = '';
+  fire: string = '0';
 
   constructor(private sessionService: SessionService, private router: Router) { }
 
@@ -21,6 +22,7 @@ export class MenuComponent implements OnInit {
 
   ionViewDidEnter(){
     this.getUserName();
+    this.getFire();
   }
 
   async logout(): Promise<void> {
@@ -32,7 +34,11 @@ export class MenuComponent implements OnInit {
 
   async getUserName(){
     this.name = await this.sessionService.getUserName();
-    console.log(this.name);
+  }
+
+  async getFire(){
+    this.fire = await (await this.sessionService.getUserConfiguration()).fire!;
+    console.log(this.fire);
   }
 
 }
