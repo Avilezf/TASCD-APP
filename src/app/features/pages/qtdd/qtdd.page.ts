@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, MenuController } from '@ionic/angular';
 import { QtddService } from '../../services/qtdd.service';
 import { ResponseQtddDto } from './dto/response-qtdd.dto';
 import { SessionService } from '../../../shared/services/session.service';
@@ -11,7 +11,8 @@ import { SessionService } from '../../../shared/services/session.service';
 })
 export class QtddPage implements OnInit {
 
-  public qtdd!: Array<ResponseQtddDto>;
+  public qtdd: Array<ResponseQtddDto> = [];
+  public count: number = 0;
 
   constructor(private menu: MenuController, private qtddService: QtddService, private sessionService: SessionService) { }
 
@@ -30,12 +31,21 @@ export class QtddPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getQtdd();
+    this.getQtdd(0);
   }
 
-  async getQtdd() {
+  async getQtdd(num: number) {
     const userId = await this.sessionService.getUserId();
-    this.qtdd = await this.qtddService.qtdd(userId).toPromise() as Array<ResponseQtddDto>;
+    let mapqtdd: Array<ResponseQtddDto> = await this.qtddService.qtdd(userId, num).toPromise() as Array<ResponseQtddDto>;
+    mapqtdd.map(e => {
+      this.qtdd.push(e);
+    })
+  }
+
+  onIonInfinite(ev: any) {
+    this.count++;
+    this.getQtdd(this.count);
+    (ev as InfiniteScrollCustomEvent).target.complete();
   }
 
 }

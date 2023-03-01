@@ -3,9 +3,13 @@ import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ErrorType } from 'src/app/shared/enum/error-type.enum';
 import { FormUtil } from '../../../shared/util/form.util';
+import { ProfileService } from '../../services/profile.service';
 import { RegisterService } from '../../services/register.service';
 import { ResponseLoginDto } from '../login/dto/response-login.dto';
 import { UserRegisterDto } from '../register/dto/user-register.dto';
+import { SessionService } from '../../../shared/services/session.service';
+import { Profile } from './dto/profile.dto';
+import { ResponseConfigDto } from '../settings/dto/response-config.dto';
 
 @Component({
   selector: 'app-profile',
@@ -14,40 +18,40 @@ import { UserRegisterDto } from '../register/dto/user-register.dto';
 })
 export class ProfilePage extends FormUtil implements OnInit {
 
-  constructor(private router: Router, protected injector: Injector, private registerService: RegisterService) {
+  profile: Profile = {
+    firstName: '',
+    lastName: '',
+    email: ''
+  };
+
+  constructor(private router: Router, protected injector: Injector, private profileService: ProfileService) {
     super(injector);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const userId = await this.sessionService.getUserId();
+    this.profile = await this.profileService.profile(userId).toPromise() as Profile;
+    console.log(this.profile);
   }
 
   protected formBuilderGroup(): { [key: string]: any } {
     return {
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+
     };
   }
 
   protected async onSubmitAction(): Promise<void> {
-    return this.register();
+    return this.save();
   }
 
-  private async register(): Promise<void> {
-    const registerDto: UserRegisterDto = this.formValues();
-    if (!(registerDto.password == registerDto.password2)) {
-      await this.utilService.showToast({ message: 'Las contraseñas no coinciden', type: ErrorType.error });
-    } else {
-      const res: ResponseLoginDto = await this.registerService.register(this.formValues()).toPromise() as ResponseLoginDto;
-      if (!res?.tokenDto?.message == null) {
+  private async save(): Promise<void> {
+      const profileDto: Profile = this.formValues();
+      const res: ResponseConfigDto = await this.profileService.save(this.formValues()).toPromise() as ResponseConfigDto;
+      if (!res?.message == null) {
         await this.utilService.showToast({ message: 'Registro Exitoso', type: ErrorType.info });
-        this.resetForm();
-        this.router.navigateByUrl('/login', { replaceUrl: true });
       } else {
-        await this.utilService.showToast({ message: 'Ya existe el usuario', type: ErrorType.error });
+        await this.utilService.showToast({ message: 'Error', type: ErrorType.error });
       }
-    }
-
-
   }
 
 }

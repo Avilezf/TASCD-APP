@@ -27,7 +27,6 @@ export class HomePage implements OnInit {
 
   async getConfiguration() {
     let appConfiguration = await this.sessionService.getUserConfiguration();
-    console.log(appConfiguration);
     if(appConfiguration != null){
       document.documentElement.style.setProperty('--ion-font-size', appConfiguration.fontSize+'px');
       document.documentElement.style.setProperty('--ion-font-family', appConfiguration.fontFamily+'');

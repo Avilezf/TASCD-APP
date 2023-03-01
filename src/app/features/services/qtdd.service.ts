@@ -14,13 +14,12 @@ import { SessionService } from '../../shared/services/session.service';
 export class QtddService {
 
   private readonly urlEndPoint: string = 'home/diary';
-  private readonly emailUser: string = 'luis.llanos9@gmail.com';
 
   constructor(private http: HttpClient) {
   }
 
-  public qtdd(UserId: string): Observable<Array<ResponseQtddDto>> {
-    return this.http.get<Array<ResponseQtddDto>>(`${environment.urlServer}/${this.urlEndPoint}/${UserId}`);
+  public qtdd(UserId: string, page: number): Observable<Array<ResponseQtddDto>> {
+    return this.http.get<Array<ResponseQtddDto>>(`${environment.urlServer}/${this.urlEndPoint}/${UserId}?page=${page}`);
   }
 
 }

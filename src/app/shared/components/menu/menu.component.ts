@@ -13,19 +13,26 @@ export class MenuComponent implements OnInit {
   pages: MenuDto[] = [];
   name: string = '';
 
-  constructor(private sessionService: SessionService, private router: Router) {}
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
+
+  }
+
+  ionViewDidEnter(){
     this.getUserName();
   }
 
   async logout(): Promise<void> {
-    await this.sessionService.logout();
-    this.router.navigateByUrl('/login');
+    this.sessionService.logout().then(e => {
+      this.router.navigateByUrl('/login');
+    });
+
   }
 
   async getUserName(){
     this.name = await this.sessionService.getUserName();
+    console.log(this.name);
   }
 
 }

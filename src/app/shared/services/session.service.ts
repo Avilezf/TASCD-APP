@@ -58,7 +58,6 @@ export class SessionService {
 
   async logout(): Promise<void> {
     await this.storeService.remove(this.key);
-    this.router.navigateByUrl('/login');
   }
 
   async getDataSession(): Promise<ResponseLoginDto> {

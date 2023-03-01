@@ -15,11 +15,11 @@
 
     <form id="form" [formGroup]="formData" (ngSubmit)="onSubmit()">
 
-      <ion-input placeholder="Nombre" formControlName="firstName"></ion-input>
+      <ion-input placeholder="Nombre" disabled="true" [value]="profile.firstName"></ion-input>
 
-      <ion-input placeholder="Apellido" formControlName="lastName"></ion-input>
+      <ion-input placeholder="Apellido"  disabled="true"  [value]="profile.lastName"></ion-input>
 
-      <ion-input placeholder="Email" disabled="true"></ion-input>
+      <ion-input placeholder="Email" disabled="true" [value]="profile.email"></ion-input>
 
       <ion-button type="submit" expand="block" shape="round">Guardar</ion-button>
 
