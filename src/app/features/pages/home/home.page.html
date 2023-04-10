@@ -12,9 +12,20 @@
   </ion-text>
 
   <div class="container">
-    <ion-card>
+    <ion-card *ngIf="loaded">
         <div [innerHTML]="htmlVerse.html" class="container card-content"></div>
     </ion-card>
+
+    <ion-card *ngIf="!loaded">
+      <div class="container card-content">
+        <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
+      </div><br>
+      <div class="container card-content">
+        <ion-skeleton-text [animated]="true" ></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" ></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true" ></ion-skeleton-text>
+      </div>
+  </ion-card>
 
     <ion-button expand="block" color="medium shade" (click)="pampe()">¿Qué te dijo Dios?</ion-button>
   </div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HomeService } from '../../services/home.service';
 import { ResponseHomeDto } from './dto/response-home.dto';
 import { SessionService } from '../../../shared/services/session.service';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { SessionService } from '../../../shared/services/session.service';
 export class HomePage implements OnInit {
 
   htmlVerse: ResponseHomeDto = new ResponseHomeDto();
+  loaded: boolean = false;
 
   constructor(private router: Router, private homeService: HomeService, private sessionService:SessionService) {
   }
@@ -23,6 +25,9 @@ export class HomePage implements OnInit {
 
   async getVerse() {
     this.htmlVerse = await this.homeService.home().toPromise() as ResponseHomeDto;
+    if(this.htmlVerse.html != ''){
+      this.loaded = true;
+    }
   }
 
   async getConfiguration() {

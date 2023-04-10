@@ -13,6 +13,7 @@ export class QtddPage implements OnInit {
 
   public qtdd: Array<ResponseQtddDto> = [];
   public count: number = 0;
+  loaded: boolean = false;
 
   constructor(private menu: MenuController, private qtddService: QtddService, private sessionService: SessionService) { }
 
@@ -39,7 +40,10 @@ export class QtddPage implements OnInit {
     let mapqtdd: Array<ResponseQtddDto> = await this.qtddService.qtdd(userId, num).toPromise() as Array<ResponseQtddDto>;
     mapqtdd.map(e => {
       this.qtdd.push(e);
-    })
+    });
+    if(this.qtdd.length != 0){
+      this.loaded = true;
+    }
   }
 
   async onIonInfinite(ev: any) {

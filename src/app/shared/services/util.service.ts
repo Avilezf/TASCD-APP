@@ -13,7 +13,7 @@ export class UtilService {
     private alertController: AlertController) {
   }
 
-  async showLoading(param?: { duration?: number }): Promise<HTMLIonLoadingElement> {
+  async showLoading2(param?: { duration?: number }): Promise<HTMLIonLoadingElement> {
     const loading: HTMLIonLoadingElement = await this.loadingController
       .create(
         {
@@ -34,7 +34,7 @@ export class UtilService {
     return loading;
   }
 
-  async showLoading2(param?: { duration?: number; message?: string }): Promise<HTMLIonLoadingElement> {
+  async showLoading(param?: { duration?: number; message?: string }): Promise<HTMLIonLoadingElement> {
     const loading: HTMLIonLoadingElement = await this.loadingController
       .create(
         {
