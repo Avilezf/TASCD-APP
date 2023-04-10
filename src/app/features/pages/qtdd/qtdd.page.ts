@@ -32,7 +32,7 @@ export class QtddPage implements OnInit {
   }
 
   ngOnInit() {
-    this.getQtdd(0);
+    this.getQtdd(1);
   }
 
   async getQtdd(num: number) {
