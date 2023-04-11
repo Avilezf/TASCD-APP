@@ -12,7 +12,7 @@ import { SessionService } from '../../../shared/services/session.service';
 export class QtddPage implements OnInit {
 
   public qtdd: Array<ResponseQtddDto> = [];
-  public count: number = 0;
+  public count: number = 1;
   loaded: boolean = false;
 
   constructor(private menu: MenuController, private qtddService: QtddService, private sessionService: SessionService) { }
