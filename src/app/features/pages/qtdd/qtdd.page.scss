@@ -6,6 +6,20 @@ ion-content {
     font-size: $font-size;
   }
 
+  ion-card {
+    .card-content {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      margin-bottom: 2px;
+      font-size: $font-size;
+      font-weight: normal;
+      text-align: justify;
+      text-justify: inter-word;
+      line-height: 1.5;
+    }
+  }
+
   @media (max-width: 50em) {
     --background: url("../../../../assets/images/background_qtdd.png") 0 0/100% 100% no-repeat;
     --background-size: 100%;

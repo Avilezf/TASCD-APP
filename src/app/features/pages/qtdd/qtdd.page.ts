@@ -14,6 +14,8 @@ export class QtddPage implements OnInit {
   public qtdd: Array<ResponseQtddDto> = [];
   public count: number = 1;
   loaded: boolean = false;
+  isModalOpen:boolean = false;
+  qtdModal:any = null;
 
   constructor(private menu: MenuController, private qtddService: QtddService, private sessionService: SessionService) { }
 
@@ -33,6 +35,11 @@ export class QtddPage implements OnInit {
 
   ngOnInit() {
     this.getQtdd(1);
+  }
+
+  setOpen(isOpen: boolean, qtd:any) {
+    this.isModalOpen = isOpen;
+    this.qtdModal = qtd;
   }
 
   async getQtdd(num: number) {

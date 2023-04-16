@@ -11,12 +11,12 @@
   <ion-content>
 
     <div *ngIf="loaded">
-      <ion-card *ngFor="let qtd of qtdd;" >
+      <ion-card *ngFor="let qtd of qtdd;" (click)="setOpen(true, qtd)">
         <ion-card-header>
           <ion-card-subtitle>{{qtd.verseDate}}</ion-card-subtitle>
           <ion-card-title>{{qtd.verseName}}</ion-card-title>
         </ion-card-header>
-        <ion-card-content [innerHTML]="qtd.verseHTML.substring(0,200)">
+        <ion-card-content [innerHTML]="qtd.verseHTML.substring(0,2000)">
         </ion-card-content>
         <div class="bar">
           <hr>
@@ -25,25 +25,52 @@
           {{qtd.qtdd}}
         </ion-card-content>
       </ion-card>
+      <!-----------------Modal------------------------->
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Tu TASCD</ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="setOpen(false, null)">Volver</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <ion-card>
+              <div [innerHTML]="qtdModal.verseHTML" class="container card-content"></div>
+              <div class="bar">
+                <hr>
+              </div>
+              <ion-card-content class="ion-text-wrap content">
+                {{qtdModal.qtdd}}
+              </ion-card-content>
+            </ion-card>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+
+      <!-----------------Infinite Scroll------------------------->
       <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
         <ion-infinite-scroll-content></ion-infinite-scroll-content>
       </ion-infinite-scroll>
     </div>
 
+    <!-----------------Skeleton------------------------->
     <div *ngIf="!loaded">
       <ion-card>
         <ion-card-header>
           <ion-card-subtitle> <ion-skeleton-text [animated]="true"></ion-skeleton-text></ion-card-subtitle>
-          <ion-card-title> <ion-skeleton-text [animated]="true" ></ion-skeleton-text></ion-card-title>
+          <ion-card-title> <ion-skeleton-text [animated]="true"></ion-skeleton-text></ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-skeleton-text [animated]="true" ></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
         </ion-card-content>
         <div class="bar">
           <hr>
         </div>
         <ion-card-content class="ion-text-wrap content">
-          <ion-skeleton-text [animated]="true" ></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
         </ion-card-content>
       </ion-card>
     </div>
