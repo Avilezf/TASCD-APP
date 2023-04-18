@@ -38,6 +38,11 @@
             Configuración</ion-item>
         </ion-menu-toggle>
 
+        <ion-menu-toggle auto-hide="false" class="item-transparent"  style="cursor: pointer;">
+          <a href="https://cbint.org/donaciones"><ion-item [routerLinkActive]="['active']"><ion-icon
+              name="bag-check-outline"></ion-icon>Donaciones</ion-item></a>
+        </ion-menu-toggle>
+
         <ion-menu-toggle auto-hide="false" class="item-transparent" (click)="logout()" style="cursor: pointer;">
           <ion-item [routerLinkActive]="['active']"><ion-icon name="log-out-outline" color="danger"></ion-icon>
             <ion-text color="danger"> Salir</ion-text></ion-item>

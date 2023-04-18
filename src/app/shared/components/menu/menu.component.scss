@@ -5,6 +5,12 @@ ion-menu {
     font-family: var(--ion-font-family);
   }
 
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+
+
   .menu-header-bg {
     height: 180px;
     width: 350px;
