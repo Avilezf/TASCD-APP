@@ -6,6 +6,8 @@ import { FormUtil } from '../../../shared/util/form.util';
 import { RegisterService } from '../../services/register.service';
 import { ResponseLoginDto } from '../login/dto/response-login.dto';
 import { UserRegisterDto } from '../register/dto/user-register.dto';
+import { UserResetPasswordDto } from './dto/user-reset-password.dto';
+import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 
 @Component({
   selector: 'app-forgot-password',
@@ -33,19 +35,17 @@ export class ForgotPasswordPage extends FormUtil implements OnInit {
   }
 
   private async register(): Promise<void> {
-    const registerDto: UserRegisterDto = this.formValues();
-    if (!(registerDto.password == registerDto.password2)) {
-      await this.utilService.showToast({ message: 'Las contraseñas no coinciden', type: ErrorType.error });
+    const userResetPasswordDto: UserResetPasswordDto = this.formValues();
+    console.log(userResetPasswordDto);
+    const res: ResponseApiDto = await this.registerService.resetPassword(userResetPasswordDto).toPromise() as ResponseApiDto;
+    if (!(res?.message == 'Error')) {
+      await this.utilService.showToast({ message: 'Email Enviado', type: ErrorType.info });
+      this.resetForm();
+      this.router.navigateByUrl('/login', { replaceUrl: true });
     } else {
-      const res: ResponseLoginDto = await this.registerService.register(this.formValues()).toPromise() as ResponseLoginDto;
-      if (!res?.tokenDto?.message == null) {
-        await this.utilService.showToast({ message: 'Registro Exitoso', type: ErrorType.info });
-        this.resetForm();
-        this.router.navigateByUrl('/login', { replaceUrl: true });
-      } else {
-        await this.utilService.showToast({ message: 'Ya existe el usuario', type: ErrorType.error });
-      }
+      await this.utilService.showToast({ message: 'Error', type: ErrorType.error });
     }
+
 
 
   }

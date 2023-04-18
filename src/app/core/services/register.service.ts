@@ -6,6 +6,7 @@ import { ResponseLoginDto } from '../pages/login/dto/response-login.dto';
 import { UserRegisterDto } from '../pages/register/dto/user-register.dto';
 import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 import { UserLoginResponseDto } from '../pages/change-password/dto/user-login.dto';
+import { UserResetPasswordDto } from '../pages/forgot-password/dto/user-reset-password.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class RegisterService {
 
   public changePassword(userLoginDto: UserLoginResponseDto): Observable<ResponseApiDto> {
     return this.http.post<ResponseApiDto>(`${environment.urlServer}/auth/change-password`, userLoginDto);
+  }
+
+  public resetPassword(userResetPasswordDto: UserResetPasswordDto): Observable<ResponseApiDto> {
+    return this.http.post<ResponseApiDto>(`${environment.urlServer}/auth/forgot-password`, userResetPasswordDto);
   }
 
 }
