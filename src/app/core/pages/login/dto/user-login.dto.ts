@@ -1,4 +1,4 @@
 export class UserLoginDto {
-  username: string | undefined;
-  password: string | undefined;
+  username: string | undefined | null;
+  password: string | undefined | null;
 }
