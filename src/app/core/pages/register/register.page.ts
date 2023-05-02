@@ -40,8 +40,8 @@ export class RegisterPage extends FormUtil implements OnInit {
     if (!(registerDto.password == registerDto.password2)) {
       await this.utilService.showToast({ message: 'Las contraseñas no coinciden', type: ErrorType.error });
     } else {
-      const res: ResponseLoginDto = await this.registerService.register(this.formValues()).toPromise() as ResponseLoginDto;
-      if (!res?.tokenDto?.message == null) {
+      const res: any = await this.registerService.register(this.formValues()).toPromise() as any;
+      if (res?.message == null) {
         await this.utilService.showToast({ message: 'Registro Exitoso', type: ErrorType.info });
         this.resetForm();
         this.router.navigateByUrl('/login', { replaceUrl: true });

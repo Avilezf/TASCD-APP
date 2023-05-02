@@ -1,4 +1,19 @@
 $font-size: var(--ion-font-size);
+
+.bodycontent li,
+.bodycontent span,
+.bodycontent b,
+.bodycontent div,
+.bodycontent p {
+    //font-size: 22px !important;
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+    font-weight: 300;
+}
+.bodycontent b {
+    font-weight: bold !important;
+}
+
 ion-content {
   font-size: $font-size;
 

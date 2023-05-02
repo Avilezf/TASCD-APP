@@ -4,6 +4,18 @@ $font-size: var(--ion-font-size);
   --color: #9c9c9c !important;
 }
 
+.bodycontent li,
+.bodycontent span,
+.bodycontent b,
+.bodycontent div,
+.bodycontent p {
+    line-height: 1.7;
+    margin-bottom: 0 !important;
+    font-weight: 300;
+}
+.bodycontent b {
+    font-weight: bold !important;
+}
 
 .card-content-md p{
   font-size: 50px !important;
