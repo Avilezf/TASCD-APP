@@ -39,7 +39,7 @@ export class SettingsPage extends FormUtil implements OnInit {
       await this.utilService.showToast({ message: 'Las contraseñas no coinciden', type: ErrorType.error });
     } else {
       const res: ResponseLoginDto = await this.registerService.register(this.formValues()).toPromise() as ResponseLoginDto;
-      if (!res.tokenDto?.message == null) {
+      if (!(res == null)) {
         await this.utilService.showToast({ message: 'Registro Exitoso', type: ErrorType.info });
         this.resetForm();
         this.router.navigateByUrl('/login', { replaceUrl: true });
