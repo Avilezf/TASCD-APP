@@ -21,12 +21,12 @@ export class SessionService {
 
   async getToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.tokenDto?.accessToken || this.defaultValue;
+    return data?.userLoginDto?.accessToken || this.defaultValue;
   }
 
   async getUserId(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.tokenDto?.userId || this.defaultValue;
+    return data?.userLoginDto?.userId || this.defaultValue;
   }
 
   async getUserName(): Promise<string> {
@@ -41,7 +41,7 @@ export class SessionService {
 
   async getRefreshToken(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.tokenDto?.refreshToken || this.defaultValue;
+    return data?.userLoginDto?.refreshToken || this.defaultValue;
   }
 
   async isAuthenticated(): Promise<boolean> {
