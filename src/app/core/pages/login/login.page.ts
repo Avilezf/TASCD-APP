@@ -37,13 +37,17 @@ export class LoginPage extends FormUtil implements OnInit {
   }
 
   private async login(): Promise<void> {
-    const res: ResponseLoginDto = await this.loginService.login(this.formValues()).toPromise() as ResponseLoginDto;
-    console.log(res);
-    await this.sessionService.saveDataSession(res);
-    await this.utilService.showToast({ message: 'Login Successfully', type: ErrorType.info });
+    const res: ResponseApiDto = await this.loginService.login(this.formValues()).toPromise() as ResponseApiDto;
+    if(!res.success){
+      await this.utilService.showToast({ message: 'Error Login', type: ErrorType.error });
+    } else {
+      await this.sessionService.saveDataSession(res.data);
+      await this.utilService.showToast({ message: 'Login Successfully', type: ErrorType.info });
 
-    this.resetForm();
-    this.router.navigateByUrl('/home', { replaceUrl: true });
+      this.resetForm();
+      this.router.navigateByUrl('/home', { replaceUrl: true });
+    }
+
   }
 
 }

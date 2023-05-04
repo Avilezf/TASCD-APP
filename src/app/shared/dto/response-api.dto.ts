@@ -1,6 +1,6 @@
 export class ResponseApiDto {
   code!: number;
-  status!: boolean;
+  success!: boolean;
   message!: string;
   cause?: string;
   data?: any;

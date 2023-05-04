@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ResponseLoginDto } from '../pages/login/dto/response-login.dto';
 import { UserLoginDto } from '../pages/login/dto/user-login.dto';
-import { AppConfiguration } from '../pages/login/dto/dto/app.configuration.dto';
-import { ResponseConfigDto } from '../pages/settings/dto/response-config.dto';
+import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 
 
 @Injectable({
@@ -18,8 +17,8 @@ export class LoginService {
   constructor(private http: HttpClient) {
   }
 
-  public login(userLoginDto: UserLoginDto): Observable<ResponseLoginDto> {
-    return this.http.post<ResponseLoginDto>(`${environment.urlServer}/${this.urlEndPoint}`, userLoginDto);
+  public login(userLoginDto: UserLoginDto): Observable<ResponseApiDto> {
+    return this.http.post<ResponseApiDto>(`${environment.urlServer}/${this.urlEndPoint}`, userLoginDto);
   }
 
 }
