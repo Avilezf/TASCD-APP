@@ -31,7 +31,7 @@ export class SessionService {
 
   async getUserName(): Promise<string> {
     const data: ResponseLoginDto = await this.getDataSession();
-    return data?.userLoginDto?.name || this.defaultValue;
+    return data?.userLoginDto?.firstName + " " + data?.userLoginDto?.lastName  || this.defaultValue;
   }
 
   async getUserConfiguration(): Promise<AppConfiguration> {
