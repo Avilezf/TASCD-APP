@@ -4,6 +4,7 @@ import { HomeService } from '../../services/home.service';
 import { ResponseHomeDto } from './dto/response-home.dto';
 import { SessionService } from '../../../shared/services/session.service';
 import { timeout } from 'rxjs';
+import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomePage implements OnInit {
   }
 
   async getVerse() {
-    this.htmlVerse = await this.homeService.home().toPromise() as ResponseHomeDto;
+    const response = await this.homeService.home().toPromise() as ResponseApiDto;
+    this.htmlVerse = response.data;
     if(this.htmlVerse.html != ''){
       this.loaded = true;
     }
