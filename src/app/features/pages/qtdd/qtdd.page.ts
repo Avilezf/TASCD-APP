@@ -44,6 +44,7 @@ export class QtddPage implements OnInit {
 
   async getQtdd(num: number) {
     const userId = await this.sessionService.getUserId();
+    console.log(userId);
     let mapqtdd: Array<ResponseQtddDto> = await this.qtddService.qtdd(userId, num).toPromise() as Array<ResponseQtddDto>;
     mapqtdd.map(e => {
       this.qtdd.push(e);
