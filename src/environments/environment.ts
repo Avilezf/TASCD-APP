@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  urlServer: 'https://tascd-api.herokuapp.com/api'
-  //urlServer: 'http://localhost:8080/api'
+  //urlServer: 'https://tascd-api.herokuapp.com/tascd-api/v1'
+  //urlServer: 'http://localhost:8080/tascd-api/v1'
 };
 
 /*
