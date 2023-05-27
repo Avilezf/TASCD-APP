@@ -3,6 +3,7 @@ import { InfiniteScrollCustomEvent, MenuController } from '@ionic/angular';
 import { QtddService } from '../../services/qtdd.service';
 import { ResponseQtddDto } from './dto/response-qtdd.dto';
 import { SessionService } from '../../../shared/services/session.service';
+import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 
 @Component({
   selector: 'app-qtdd',
@@ -44,8 +45,8 @@ export class QtddPage implements OnInit {
 
   async getQtdd(num: number) {
     const userId = await this.sessionService.getUserId();
-    console.log(userId);
-    let mapqtdd: Array<ResponseQtddDto> = await this.qtddService.qtdd(userId, num).toPromise() as Array<ResponseQtddDto>;
+    let responseApiDto: ResponseApiDto = await this.qtddService.qtdd(userId, num).toPromise() as ResponseApiDto;
+    let mapqtdd: Array<ResponseQtddDto> = responseApiDto.data as Array<ResponseQtddDto>;
     mapqtdd.map(e => {
       this.qtdd.push(e);
     });
