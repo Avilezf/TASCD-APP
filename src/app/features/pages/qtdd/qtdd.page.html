@@ -20,8 +20,7 @@
         <div class="bar">
           <hr>
         </div>
-        <ion-card-content class="ion-text-wrap content">
-          {{qtd.qtdd}}
+        <ion-card-content class="ion-text-wrap content" [innerHTML]="qtd.qtdd">
         </ion-card-content>
       </ion-card>
       <!-----------------Modal------------------------->
@@ -41,8 +40,8 @@
               <div class="bar">
                 <hr>
               </div>
-              <ion-card-content class="ion-text-wrap content">
-                {{qtdModal.qtdd}}
+              <ion-card-content class="ion-text-wrap content" [innerHTML]="qtdModal.qtdd">
+
               </ion-card-content>
             </ion-card>
           </ion-content>

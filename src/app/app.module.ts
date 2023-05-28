@@ -1,5 +1,3 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -12,6 +10,34 @@ import { TokenInterceptor } from './core/handler/token.handler';
 import { HttpErrorInterceptor } from './core/handler/http-error.handler';
 import { SharedModule } from './shared/shared.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { QuillModule } from 'ngx-quill';
+
+const modules: QuillModule = {
+  toolbar: [
+    [{ header: [1, 2, false] }],
+    ['bold', 'italic', 'underline'],        // toggled buttons
+    //['strike','blockquote', 'code-block'],
+
+//   [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+
+//    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+//    [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+//    [{ 'direction': 'rtl' }],                         // text direction
+
+    //[{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    //[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+//    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+//    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    //['link','image','video']
+    //['clean']
+  ]
+}
 
 
 @NgModule({
@@ -22,7 +48,14 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     IonicStorageModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    QuillModule.forRoot({
+      format: 'html',
+      modules: modules,
+      placeholder: 'Escribe aquí lo que te dijo Dios',
+      scrollingContainer: '#scrolling-container',
+      theme: 'bubble'
+    })
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -31,4 +64,4 @@ import { MenuComponent } from './shared/components/menu/menu.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

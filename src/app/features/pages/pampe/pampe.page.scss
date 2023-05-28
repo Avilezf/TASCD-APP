@@ -15,4 +15,25 @@ ion-content {
   p {
     font-size: $font-size;
   }
+
+  /* Tell Quill not to scroll */
+  #quill-container {
+    height: auto;
+    width: auto;
+    min-height: 100%;
+    padding: 50px;
+  }
+
+  #quill-container .ql-editor {
+    //font-size: 18px;
+    overflow-y: visible;
+  }
+
+  /* Specify our own scrolling container */
+  #scrolling-container {
+    height: 180px;
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto;
+  }
 }

@@ -1,6 +1,4 @@
 import { PampeDto } from './dto/pampe.dto';
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { IonCard, IonContent, IonTextarea } from '@ionic/angular';
 import { PampeService } from '../../services/pampe.service';
 import { SessionService } from '../../../shared/services/session.service';
@@ -8,6 +6,8 @@ import { ResponsePampeDto } from './dto/response-pampe.dto';
 import { FormUtil } from 'src/app/shared/util/form.util';
 import { ErrorType } from 'src/app/shared/enum/error-type.enum';
 import { UtilService } from '../../../shared/services/util.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pampe',
@@ -28,6 +28,7 @@ export class PampePage implements OnInit {
 
   public isTextFocus:boolean = true;
   public isPampeDone:boolean = false;
+  textarea2:string = '';
 
   constructor(private router: Router, private pampeService :PampeService, private sessionService: SessionService, private utilService: UtilService) {
    }
@@ -52,10 +53,13 @@ export class PampePage implements OnInit {
   async pampe(): Promise<void>{
 
     let userId = await this.sessionService.getUserId();
+    const textareaHtml = this.textarea2;
+
     let pampeDto: PampeDto = {
-      qtdd: this.textarea.value as string,
+      qtdd: textareaHtml as string,
       userId: userId as string
     };
+
 
     let response = await this.pampeService.pampe(pampeDto).toPromise() as ResponsePampeDto;
     if(response)

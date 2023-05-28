@@ -30,22 +30,11 @@
   </ion-card>
 
   <form>
-    <ion-item>
+    <div class="container">
       <ion-label position="stacked" class="size">¿Qué te dijo Dios?</ion-label>
-      <ion-textarea autosize
-        #textarea
-        (ionFocus)="scrollTo()"
-        (ionBlur)="scrollDown()"
-        rows="1"
-        type="text"
-        autoGrow="true"
-        placeholder="Escribe aquí lo que te dijo Dios"
-        autocomplete="on"
-        autocorrect="on"
-        >
-      </ion-textarea>
-    </ion-item>
-    <ion-button expand="full" shape="round" color="medium" (click)="pampe()" *ngIf="!isPampeDone">Guardar</ion-button>
+      <quill-editor id="scrolling-container" [(ngModel)]="textarea2" name="textarea2"></quill-editor>
+      <ion-button expand="full" shape="round" color="medium" (click)="pampe()" *ngIf="!isPampeDone">Guardar</ion-button>
+    </div>
   </form>
 
 </ion-content>

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SessionService } from 'src/app/shared/services/session.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutoLoginGuard implements CanLoad {
+export class AutoLoginGuard  {
 
   constructor(private sessionService: SessionService, private router: Router) {
   }
