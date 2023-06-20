@@ -41,4 +41,9 @@ export class MenuComponent implements OnInit {
     console.log(this.fire);
   }
 
+  async onFire() {
+    this.fire = await (await this.sessionService.getUserConfiguration()).fire!;
+    console.log(this.fire);
+  }
+
 }
