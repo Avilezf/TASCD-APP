@@ -41,7 +41,7 @@ export class RegisterPage extends FormUtil implements OnInit {
       await this.utilService.showToast({ message: 'Las contraseñas no coinciden', type: ErrorType.error });
     } else {
       const res: any = await this.registerService.register(this.formValues()).toPromise() as any;
-      if (res?.message == null) {
+      if (res?.code == 201) {
         await this.utilService.showToast({ message: 'Registro Exitoso', type: ErrorType.info });
         this.resetForm();
         this.router.navigateByUrl('/login', { replaceUrl: true });
