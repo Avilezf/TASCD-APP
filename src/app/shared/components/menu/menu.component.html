@@ -1,4 +1,4 @@
-<ion-menu side="start" menuId="main-menu" content-id="main">
+<ion-menu side="start" menuId="main-menu" content-id="main" (ionDidOpen)="ionDidOpen()" >
   <ion-content>
     <div class="menu-header-bg"></div>
     <div class="header-content">
@@ -12,7 +12,7 @@
       </ion-label>
     </div>
     <div class="action-button">
-      <ion-button (click)="onFire()"  ><ion-icon name="flame-outline" color="warning"></ion-icon>{{fire}} Racha</ion-button>
+      <ion-button><ion-icon name="flame-outline" color="warning"></ion-icon>{{fire}} Racha</ion-button>
     </div>
 
     <ion-list lines="none" class="menu-items">

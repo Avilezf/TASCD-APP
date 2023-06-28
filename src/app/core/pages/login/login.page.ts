@@ -18,8 +18,8 @@ export class LoginPage extends FormUtil implements OnInit {
     private router: Router,
     protected injector: Injector,
     private loginService: LoginService) {
-      super(injector);
-   }
+    super(injector);
+  }
 
   ngOnInit() {
   }
@@ -37,15 +37,22 @@ export class LoginPage extends FormUtil implements OnInit {
   }
 
   private async login(): Promise<void> {
-    const res: ResponseApiDto = await this.loginService.login(this.formValues()).toPromise() as ResponseApiDto;
-    if(!res.success){
-      await this.utilService.showToast({ message: 'Error Login', type: ErrorType.error });
-    } else {
-      await this.sessionService.saveDataSession(res.data);
-      await this.utilService.showToast({ message: 'Login Successfully', type: ErrorType.info });
+    try {
 
-      this.resetForm();
-      this.router.navigateByUrl('/home', { replaceUrl: true });
+      const res: ResponseApiDto = await this.loginService.login(this.formValues()).toPromise() as ResponseApiDto;
+
+      if (!res.success) {
+        await this.utilService.showToast({ message: res.data, type: ErrorType.error });
+      } else {
+        await this.sessionService.saveDataSession(res.data);
+        await this.utilService.showToast({ message: 'Login Successfully', type: ErrorType.info });
+
+        this.resetForm();
+        this.router.navigateByUrl('/home', { replaceUrl: true });
+      }
+
+    } catch (error) {
+      await this.utilService.showToast({ message: 'Contactar al Administrador', type: ErrorType.error });
     }
 
   }

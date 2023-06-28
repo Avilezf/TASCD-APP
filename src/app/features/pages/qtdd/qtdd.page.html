@@ -12,16 +12,17 @@
 
     <div *ngIf="loaded">
       <ion-card *ngFor="let qtd of qtdd;" (click)="setOpen(true, qtd)">
-        <ion-card-header>
-          <ion-card-subtitle>{{qtd.verseDate}}</ion-card-subtitle>
-          <ion-card-title>{{qtd.verseName}}</ion-card-title>
-        </ion-card-header>
+
+        <div class="ion-padding">
+          <p>{{qtd.verseDate}}</p>
+          <!--<ion-card-title>{{qtd.verseName}}</ion-card-title>-->
+        </div>
         <div [innerHTML]="qtd.verseHTML.substring(0,2000)" class="container card-content"></div>
         <div class="bar">
           <hr>
         </div>
-        <ion-card-content class="ion-text-wrap content" [innerHTML]="qtd.qtdd">
-        </ion-card-content>
+        <div class="ion-text-wrap content container card-content" [innerHTML]="qtd.qtdd">
+        </div>
       </ion-card>
       <!-----------------Modal------------------------->
       <ion-modal [isOpen]="isModalOpen">
@@ -40,7 +41,7 @@
               <div class="bar">
                 <hr>
               </div>
-              <ion-card-content class="ion-text-wrap content" [innerHTML]="qtdModal.qtdd">
+              <ion-card-content class="ion-text-wrap content card-content" [innerHTML]="qtdModal.qtdd">
 
               </ion-card-content>
             </ion-card>

@@ -14,15 +14,19 @@ $font-size: var(--ion-font-size);
     font-weight: bold !important;
 }
 
+p {
+  font-size: $font-size - 2px !important;
+}
+
 ion-content {
-  font-size: $font-size;
+  font-size: $font-size !important;
 
   .card-content {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 2px;
-    font-size: $font-size;
+    font-size: $font-size !important;
     font-weight: normal;
     text-align: justify;
     text-justify: inter-word;

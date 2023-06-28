@@ -10,6 +10,8 @@ import { UserRegisterDto } from '../register/dto/user-register.dto';
 import { SessionService } from '../../../shared/services/session.service';
 import { Profile } from './dto/profile.dto';
 import { ResponseConfigDto } from '../settings/dto/response-config.dto';
+import { AppConfiguration } from '../login/dto/dto/app.configuration.dto';
+import { ResponseApiDto } from 'src/app/shared/dto/response-api.dto';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +23,8 @@ export class ProfilePage extends FormUtil implements OnInit {
   profile: Profile = {
     firstName: '',
     lastName: '',
-    email: ''
+    email: '',
+    appConfiguration: new AppConfiguration
   };
 
   constructor(private router: Router, protected injector: Injector, private profileService: ProfileService) {
@@ -30,7 +33,8 @@ export class ProfilePage extends FormUtil implements OnInit {
 
   async ngOnInit() {
     const userId = await this.sessionService.getUserId();
-    this.profile = await this.profileService.profile(userId).toPromise() as Profile;
+    const resp = await this.profileService.profile(userId).toPromise() as ResponseApiDto;
+    this.profile = resp.data;
     console.log(this.profile);
   }
 
