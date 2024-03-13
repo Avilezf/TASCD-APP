@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.promiseministry.tascd;
 
 import com.getcapacitor.BridgeActivity;
 

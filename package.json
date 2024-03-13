@@ -23,6 +23,7 @@
     "@capacitor/app": "4.1.1",
     "@capacitor/core": "4.6.2",
     "@capacitor/haptics": "4.1.0",
+    "@capacitor/ios": "4.6.2",
     "@capacitor/keyboard": "4.1.1",
     "@capacitor/share": "^4.1.1",
     "@capacitor/splash-screen": "^4.1.3",
