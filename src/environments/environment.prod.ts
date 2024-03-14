@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  urlServer: 'http://tascd-app.com:8080/tascd-api/v1'
+  urlServer: 'https://tascd-app.com/api'
   //urlServer: 'http://localhost:8080/tascd-api/v1'
 };
